@@ -1,5 +1,7 @@
 import mysql.connector
 from mysql.connector import errorcode
+import json
+import os
 
 # Informations de connexion MySQL
 config = {
@@ -10,6 +12,9 @@ config = {
 
 # Nom de la base de données
 db_name = 'product_db'
+
+# Chemin du fichier JSON
+json_file_path = os.path.join('..', 'data', 'data.json')
 
 # Connexion à MySQL
 try:
@@ -70,9 +75,47 @@ try:
         except mysql.connector.Error as err:
             print(f"Erreur lors de la création de la table {table_name} : {err}")
 
-    # Valider les changements
-    cnx.commit()
-    print("Les tables ont été créées avec succès.")
+    # Lecture des données du fichier JSON
+    try:
+        with open(json_file_path, 'r') as f:
+            data = json.load(f)
+
+        # Insertion des données dans la table Products et Stocks
+        for product in data:
+            insert_product = """
+                INSERT INTO products (id_product, created_at_, name, price_, description_, color)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            """
+            cursor.execute(insert_product, (
+                product['id'],
+                product['createdAt'],
+                product['name'],
+                product['details']['price'],
+                product['details']['description'],
+                product['details']['color']
+            ))
+
+            # Insertion des données dans la table Stocks
+            insert_stock = """
+                INSERT INTO stocks (id_stocks, quantity_, id_product)
+                VALUES (%s, %s, %s)
+            """
+            cursor.execute(insert_stock, (
+                product['id'],  # Utilise l'id du produit comme id_stock (vous pouvez ajuster si nécessaire)
+                product['stock'],
+                product['id']
+            ))
+
+        # Valider les changements
+        cnx.commit()
+        print("Données insérées avec succès.")
+
+    except FileNotFoundError:
+        print(f"Le fichier {json_file_path} n'existe pas.")
+    except json.JSONDecodeError as e:
+        print(f"Erreur de décodage JSON : {e}")
+    except mysql.connector.Error as err:
+        print(f"Erreur lors de l'insertion des données : {err}")
 
     # Fermer la connexion
     cursor.close()
