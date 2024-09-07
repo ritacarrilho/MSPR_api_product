@@ -10,17 +10,31 @@
 
 ## Endpoints de l'API
 
-
-
 ## Docker
 
 1) Build container : ```docker-compose build```
 
 2) Start container : ```docker-compose up```
 
-
 ## Commandes utiles
 ### Effacer fichiers DS_Store
 ```java
 find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 ```
+
+## Base de données
+
+[MySQL](https://www.mysql.com/fr/)
+
+**Nom BDD** : ``product_db``
+
+### Mock initial 
+
+![](/assets/mock.png)
+
+### Modèle conceptuel de données (MCD)
+
+### Détails tables
+
+
+
