@@ -58,7 +58,7 @@ try:
         """,
         'Stocks': """
             CREATE TABLE stocks (
-                id_stocks SMALLINT,
+                id_stocks SMALLINT AUTO_INCREMENT,
                 quantity INT NOT NULL,
                 id_product SMALLINT NOT NULL,
                 PRIMARY KEY (id_stocks),
@@ -97,11 +97,10 @@ try:
 
             # Insertion des données dans la table Stocks
             insert_stock = """
-                INSERT INTO stocks (id_stocks, quantity, id_product)
-                VALUES (%s, %s, %s)
+                INSERT INTO stocks (quantity, id_product)
+                VALUES (%s, %s)
             """
             cursor.execute(insert_stock, (
-                product['id'],  # Utilise l'id du produit comme id_stock (vous pouvez ajuster si nécessaire)
                 product['stock'],
                 product['id']
             ))
