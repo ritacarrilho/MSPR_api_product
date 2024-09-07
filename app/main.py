@@ -29,8 +29,3 @@ def get_products():
 @app.get("/products/{id}", tags=["Products"])
 def get_products():
     return {"get product by id": "ok"}
-
-
-@app.get("/products/{name}", tags=["Products"])
-def get_products():
-    return {"get product by name": "ok"}
