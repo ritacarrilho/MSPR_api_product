@@ -8,9 +8,11 @@ services:
       POSTGRES_PASSWORD: kawaproducts
       POSTGRES_DB: kawaproductsdb
     ports:
-      - "3250:5433"
+      - "3250:5430"
+    expose:
+      - "5430" 
     volumes:
-      - data:/var/lib/postgresql/data
+      - products-data:/var/lib/postgresql/data
     networks:
       - kawa-products-network
 
@@ -19,7 +21,7 @@ services:
     build:
       context: .
     ports:
-      - "8000:8000"
+      - "8080:80"
     depends_on:
       - kawa-products-db
     environment:
@@ -28,7 +30,7 @@ services:
       - kawa-products-network
 
 volumes:
-  data:
+  products-data:
 
 networks:
   kawa-products-network:
