@@ -33,6 +33,7 @@ find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 ![](/assets/mock.png)
 
 ### Modèle conceptuel de données (MCD)
+![](/assets/MCD.png)
 
 ### Détails tables
 
