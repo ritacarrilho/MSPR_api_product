@@ -17,7 +17,7 @@
 1) Build container : ```docker-compose build```
 
 
-2) Test avec coverage : ```docker-compose up```
+2) Start container : ```docker-compose up```
 
 ![](./assets/docs/docker.png)
 
