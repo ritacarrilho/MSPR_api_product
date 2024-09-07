@@ -47,10 +47,10 @@ try:
         'Products': """
             CREATE TABLE products (
                 id_product SMALLINT,
-                created_at_ DATETIME NOT NULL,
+                created_at DATETIME NOT NULL,
                 name VARCHAR(50) NOT NULL,
-                price_ DECIMAL(10,2) NOT NULL,
-                description_ VARCHAR(150),
+                price DECIMAL(10,2) NOT NULL,
+                description VARCHAR(150),
                 color VARCHAR(50) NOT NULL,
                 PRIMARY KEY (id_product),
                 UNIQUE (name)
@@ -59,7 +59,7 @@ try:
         'Stocks': """
             CREATE TABLE stocks (
                 id_stocks SMALLINT,
-                quantity_ INT NOT NULL,
+                quantity INT NOT NULL,
                 id_product SMALLINT NOT NULL,
                 PRIMARY KEY (id_stocks),
                 FOREIGN KEY (id_product) REFERENCES products(id_product)
@@ -83,7 +83,7 @@ try:
         # Insertion des données dans la table Products et Stocks
         for product in data:
             insert_product = """
-                INSERT INTO products (id_product, created_at_, name, price_, description_, color)
+                INSERT INTO products (id_product, created_at, name, price, description, color)
                 VALUES (%s, %s, %s, %s, %s, %s)
             """
             cursor.execute(insert_product, (
@@ -97,7 +97,7 @@ try:
 
             # Insertion des données dans la table Stocks
             insert_stock = """
-                INSERT INTO stocks (id_stocks, quantity_, id_product)
+                INSERT INTO stocks (id_stocks, quantity, id_product)
                 VALUES (%s, %s, %s)
             """
             cursor.execute(insert_stock, (
