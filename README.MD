@@ -52,9 +52,13 @@ color (VARCHAR) : Couleur du produit.
 #### Table ``stocks``
 id (INT, clé primaire) : Identifiant unique pour chaque enregistrement de stock. 
 
-product_id (INT, clé étrangère) : Référence au produit. Ce champ fait le lien avec la table products en stockant l'identifiant du produit correspondant. Cela permet de savoir quel produit est associé à chaque enregistrement de stock.
+product_id (INT, clé étrangère) : Référence au produit. 
 
-quantity (INT) : Quantité en stock. Ce champ indique le nombre d'unités disponibles pour le produit référencé. Cela permet de gérer les niveaux de stock et de savoir quand il est nécessaire de réapprovisionner.
+*Ce champ fait le lien avec la table products en stockant l'identifiant du produit correspondant. Cela permet de savoir quel produit est associé à chaque enregistrement de stock.*
+
+quantity (INT) : Quantité en stock.
+
+*Ce champ indique le nombre d'unités disponibles pour le produit référencé. Cela permet de gérer les niveaux de stock et de savoir quand il est nécessaire de réapprovisionner.*
 
 
 
