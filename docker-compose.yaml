@@ -7,6 +7,7 @@ services:
       MYSQL_USER: products
       MYSQL_PASSWORD: kawaproducts
       MYSQL_DATABASE: kawaproductsdb
+      MYSQL_ROOT_PASSWORD: rootpassword
     ports:
       - "3254:3308" 
     expose:
