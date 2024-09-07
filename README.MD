@@ -28,6 +28,12 @@ find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 
 **Nom BDD** : ``product_db``
 
+### Création de la base de donnée
+```python
+py .\database\scripts\create_BDD.py
+```
+![](/assets/create_bdd.png)
+
 ### Mock initial 
 
 ![](/assets/mock.png)
