@@ -26,7 +26,7 @@ find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 
 [MySQL](https://www.mysql.com/fr/)
 
-**Nom BDD :** ``product_db``
+**Nom BDD** : ``product_db``
 
 ### Mock initial 
 
