@@ -2,17 +2,17 @@ version: "3.8"
 
 services:
   kawa-products-db:
-    image: postgres:latest
+    image: mysql:latest
     environment:
-      POSTGRES_USER: products
-      POSTGRES_PASSWORD: kawaproducts
-      POSTGRES_DB: kawaproductsdb
+      MYSQL_USER: products
+      MYSQL_PASSWORD: kawaproducts
+      MYSQL_DATABASE: kawaproductsdb
     ports:
-      - "3250:5430"
+      - "3254:3308" 
     expose:
-      - "5430" 
+      - "3308"  
     volumes:
-      - products-data:/var/lib/postgresql/data
+      - products-data:/var/lib/mysql
     networks:
       - kawa-products-network
 
@@ -25,7 +25,7 @@ services:
     depends_on:
       - kawa-products-db
     environment:
-      - DATABASE_URL=postgresql://products:kawaproducts@kawa-products-db/kawaproductsdb
+      - DATABASE_URL=mysql://products:kawaproducts@kawa-products-db:3308/kawaproductsdb
     networks:
       - kawa-products-network
 
