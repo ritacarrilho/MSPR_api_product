@@ -1,0 +1,563 @@
+[
+    {
+      "createdAt": "2023-08-30T13:25:32.033Z",
+      "name": "Emily Mraz Jr.",
+      "details": {
+        "price": "738.00",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+        "color": "magenta"
+      },
+      "stock": 56558,
+      "id": "4"
+    },
+    {
+      "createdAt": "2023-08-30T07:29:29.695Z",
+      "name": "Lonnie Schuppe DDS",
+      "details": {
+        "price": "753.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "fuchsia"
+      },
+      "stock": 65152,
+      "id": "5"
+    },
+    {
+      "createdAt": "2023-08-29T14:39:54.335Z",
+      "name": "Clint Boyer",
+      "details": {
+        "price": "746.00",
+        "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+        "color": "blue"
+      },
+      "stock": 90214,
+      "id": "6"
+    },
+    {
+      "createdAt": "2023-08-30T06:55:20.905Z",
+      "name": "Kottea CK150S",
+      "details": {
+        "price": "599",
+        "description": "La Kottea CK150S est une machine expresso polyvalente, mais simple d'utilisation grâce aux filtres pressurisés et filtre simples fournis. Équipée d'un porte-filtre 58 mm professionnel et d'une dose programmable avec un timer digital, elle est également très performante en termes de puissance vapeur. Garantie 2 ans. Livraison gratuite.",
+        "color": "olive"
+      },
+      "stock": 5549,
+      "id": "7"
+    },
+    {
+      "createdAt": "2023-08-30T06:44:19.836Z",
+      "name": "Marianne VonRueden",
+      "details": {
+        "price": "154.00",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+        "color": "teal"
+      },
+      "stock": 25994,
+      "id": "9"
+    },
+    {
+      "createdAt": "2023-08-30T02:49:49.316Z",
+      "name": "Dr. Jeanne Streich",
+      "details": {
+        "price": "608.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "tan"
+      },
+      "stock": 82498,
+      "id": "10"
+    },
+    {
+      "createdAt": "2023-08-30T10:53:17.204Z",
+      "name": "Ernestine Willms",
+      "details": {
+        "price": "662.00",
+        "description": "The Football Is Good For Training And Recreational Purposes",
+        "color": "mint green"
+      },
+      "stock": 92876,
+      "id": "11"
+    },
+    {
+      "createdAt": "2023-08-30T02:05:10.215Z",
+      "name": "Yvonne Fisher",
+      "details": {
+        "price": "358.00",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "color": "mint green"
+      },
+      "stock": 68486,
+      "id": "12"
+    },
+    {
+      "createdAt": "2023-08-30T04:12:31.944Z",
+      "name": "Lynn Skiles",
+      "details": {
+        "price": "963.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "blue"
+      },
+      "stock": 5563,
+      "id": "13"
+    },
+    {
+      "createdAt": "2023-08-29T19:07:33.554Z",
+      "name": "April McDermott",
+      "details": {
+        "price": "14.00",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "color": "orchid"
+      },
+      "stock": 81671,
+      "id": "14"
+    },
+    {
+      "createdAt": "2023-08-30T07:08:07.927Z",
+      "name": "Faye Johnston",
+      "details": {
+        "price": "85.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "sky blue"
+      },
+      "stock": 85672,
+      "id": "15"
+    },
+    {
+      "createdAt": "2023-08-30T03:55:30.652Z",
+      "name": "Erin Cruickshank",
+      "details": {
+        "price": "828.00",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "color": "olive"
+      },
+      "stock": 17170,
+      "id": "16"
+    },
+    {
+      "createdAt": "2023-08-30T02:10:41.062Z",
+      "name": "Garry Collier V",
+      "details": {
+        "price": "705.00",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "color": "indigo"
+      },
+      "stock": 48448,
+      "id": "17"
+    },
+    {
+      "createdAt": "2023-08-29T17:17:51.545Z",
+      "name": "Minnie Ratke",
+      "details": {
+        "price": "182.00",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "color": "orchid"
+      },
+      "stock": 22303,
+      "id": "18"
+    },
+    {
+      "createdAt": "2023-08-29T14:57:51.828Z",
+      "name": "Ann Bernhard",
+      "details": {
+        "price": "190.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "magenta"
+      },
+      "stock": 71956,
+      "id": "19"
+    },
+    {
+      "createdAt": "2023-08-29T19:55:57.395Z",
+      "name": "Bessie Blanda",
+      "details": {
+        "price": "551.00",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "color": "maroon"
+      },
+      "stock": 90810,
+      "id": "20"
+    },
+    {
+      "createdAt": "2023-08-29T23:27:54.267Z",
+      "name": "Ms. Angel Mante",
+      "details": {
+        "price": "315.00",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "color": "tan"
+      },
+      "stock": 43645,
+      "id": "21"
+    },
+    {
+      "createdAt": "2023-08-29T15:52:31.410Z",
+      "name": "Neal MacGyver",
+      "details": {
+        "price": "251.00",
+        "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+        "color": "cyan"
+      },
+      "stock": 5935,
+      "id": "22"
+    },
+    {
+      "createdAt": "2023-08-29T14:17:14.272Z",
+      "name": "Dorothy Homenick DVM",
+      "details": {
+        "price": "577.00",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "color": "tan"
+      },
+      "stock": 16739,
+      "id": "23"
+    },
+    {
+      "createdAt": "2023-08-29T22:51:58.852Z",
+      "name": "Roosevelt Little",
+      "details": {
+        "price": "93.00",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+        "color": "violet"
+      },
+      "stock": 41019,
+      "id": "24"
+    },
+    {
+      "createdAt": "2023-08-30T06:25:00.611Z",
+      "name": "Vicki Osinski DDS",
+      "details": {
+        "price": "771.00",
+        "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+        "color": "maroon"
+      },
+      "stock": 2950,
+      "id": "25"
+    },
+    {
+      "createdAt": "2023-08-30T04:22:23.005Z",
+      "name": "Elvira Schaden",
+      "details": {
+        "price": "361.00",
+        "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+        "color": "salmon"
+      },
+      "stock": 25010,
+      "id": "26"
+    },
+    {
+      "createdAt": "2023-08-30T00:48:38.668Z",
+      "name": "Vera Tillman PhD",
+      "details": {
+        "price": "978.00",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "color": "pink"
+      },
+      "stock": 61207,
+      "id": "27"
+    },
+    {
+      "createdAt": "2023-08-30T02:38:41.042Z",
+      "name": "Claire Ward",
+      "details": {
+        "price": "741.00",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "color": "pink"
+      },
+      "stock": 88738,
+      "id": "28"
+    },
+    {
+      "createdAt": "2023-08-30T07:41:57.812Z",
+      "name": "Maurice Ferry",
+      "details": {
+        "price": "142.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "green"
+      },
+      "stock": 45371,
+      "id": "29"
+    },
+    {
+      "createdAt": "2023-08-29T15:39:36.090Z",
+      "name": "William Kris",
+      "details": {
+        "price": "894.00",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "color": "indigo"
+      },
+      "stock": 60700,
+      "id": "30"
+    },
+    {
+      "createdAt": "2023-08-29T22:29:27.742Z",
+      "name": "Walter Spencer",
+      "details": {
+        "price": "354.00",
+        "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+        "color": "tan"
+      },
+      "stock": 22195,
+      "id": "31"
+    },
+    {
+      "createdAt": "2023-08-29T23:40:21.542Z",
+      "name": "Jennifer Towne",
+      "details": {
+        "price": "93.00",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+        "color": "lime"
+      },
+      "stock": 8585,
+      "id": "32"
+    },
+    {
+      "createdAt": "2023-08-29T19:53:23.933Z",
+      "name": "Holly Schinner",
+      "details": {
+        "price": "84.00",
+        "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+        "color": "purple"
+      },
+      "stock": 93202,
+      "id": "33"
+    },
+    {
+      "createdAt": "2023-08-29T22:28:08.561Z",
+      "name": "Clayton Carter",
+      "details": {
+        "price": "35.00",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "color": "grey"
+      },
+      "stock": 84947,
+      "id": "34"
+    },
+    {
+      "createdAt": "2023-08-30T03:36:06.757Z",
+      "name": "Mark Weissnat",
+      "details": {
+        "price": "532.00",
+        "description": "The Football Is Good For Training And Recreational Purposes",
+        "color": "yellow"
+      },
+      "stock": 58007,
+      "id": "35"
+    },
+    {
+      "createdAt": "2023-08-30T12:56:30.628Z",
+      "name": "Sandra Stracke",
+      "details": {
+        "price": "576.00",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+        "color": "orange"
+      },
+      "stock": 31161,
+      "id": "36"
+    },
+    {
+      "createdAt": "2023-08-30T08:20:59.711Z",
+      "name": "Randy Koepp",
+      "details": {
+        "price": "974.00",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+        "color": "black"
+      },
+      "stock": 13028,
+      "id": "37"
+    },
+    {
+      "createdAt": "2023-08-29T16:48:45.740Z",
+      "name": "Otis Lebsack",
+      "details": {
+        "price": "913.00",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+        "color": "olive"
+      },
+      "stock": 49854,
+      "id": "38"
+    },
+    {
+      "createdAt": "2023-08-29T18:26:11.393Z",
+      "name": "Misty D'Amore",
+      "details": {
+        "price": "77.00",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "color": "green"
+      },
+      "stock": 58787,
+      "id": "39"
+    },
+    {
+      "createdAt": "2023-08-29T23:57:51.462Z",
+      "name": "Chelsea Schmeler",
+      "details": {
+        "price": "642.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "sky blue"
+      },
+      "stock": 48986,
+      "id": "40"
+    },
+    {
+      "createdAt": "2023-08-29T23:23:38.432Z",
+      "name": "Jean Huel",
+      "details": {
+        "price": "222.00",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "color": "mint green"
+      },
+      "stock": 54579,
+      "id": "41"
+    },
+    {
+      "createdAt": "2023-08-29T16:17:08.254Z",
+      "name": "Dr. Jeffery Harber",
+      "details": {
+        "price": "938.00",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "color": "green"
+      },
+      "stock": 28705,
+      "id": "42"
+    },
+    {
+      "createdAt": "2023-08-29T18:41:08.634Z",
+      "name": "Jack Harris",
+      "details": {
+        "price": "135.00",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+        "color": "purple"
+      },
+      "stock": 61739,
+      "id": "43"
+    },
+    {
+      "createdAt": "2023-08-30T08:47:45.030Z",
+      "name": "Ollie Dickens",
+      "details": {
+        "price": "327.00",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+        "color": "fuchsia"
+      },
+      "stock": 37321,
+      "id": "44"
+    },
+    {
+      "createdAt": "2023-08-29T19:47:43.679Z",
+      "name": "Russell Botsford",
+      "details": {
+        "price": "381.00",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "color": "lime"
+      },
+      "stock": 58561,
+      "id": "45"
+    },
+    {
+      "createdAt": "2023-08-30T07:53:04.382Z",
+      "name": "Wilson McLaughlin",
+      "details": {
+        "price": "417.00",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+        "color": "indigo"
+      },
+      "stock": 67993,
+      "id": "46"
+    },
+    {
+      "createdAt": "2023-08-29T22:43:02.228Z",
+      "name": "Benny Schimmel I",
+      "details": {
+        "price": "688.00",
+        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+        "color": "purple"
+      },
+      "stock": 18370,
+      "id": "47"
+    },
+    {
+      "createdAt": "2023-08-30T10:00:26.022Z",
+      "name": "Brendan Kris",
+      "details": {
+        "price": "182.00",
+        "description": "The Football Is Good For Training And Recreational Purposes",
+        "color": "yellow"
+      },
+      "stock": 68285,
+      "id": "48"
+    },
+    {
+      "createdAt": "2023-08-29T20:22:25.136Z",
+      "name": "Cynthia Considine",
+      "details": {
+        "price": "808.00",
+        "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+        "color": "blue"
+      },
+      "stock": 52698,
+      "id": "49"
+    },
+    {
+      "createdAt": "2023-08-30T07:17:28.982Z",
+      "name": "Shannon Haag",
+      "details": {
+        "price": "75.00",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+        "color": "azure"
+      },
+      "stock": 93511,
+      "id": "51"
+    },
+    {
+      "createdAt": "2023-08-30T07:53:44.881Z",
+      "name": "Nina Bartell",
+      "details": {
+        "price": "663.00",
+        "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+        "color": "gold"
+      },
+      "stock": 38391,
+      "id": "52"
+    },
+    {
+      "createdAt": "2023-08-30T00:12:55.179Z",
+      "name": "Damon Hettinger",
+      "details": {
+        "price": "750.00",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+        "color": "teal"
+      },
+      "stock": 90346,
+      "id": "53"
+    },
+    {
+      "createdAt": "2023-08-30T02:26:58.265Z",
+      "name": "Alberto Bahringer",
+      "details": {
+        "price": "568.00",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+        "color": "violet"
+      },
+      "stock": 95904,
+      "id": "54"
+    },
+    {
+      "createdAt": "2023-08-29T21:00:58.915Z",
+      "name": "Frankie Lesch",
+      "details": {
+        "price": "38.00",
+        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+        "color": "pink"
+      },
+      "stock": 6310,
+      "id": "55"
+    },
+    {
+      "createdAt": "2024-04-19T10:51:44.004Z",
+      "name": "Pearl Johnston",
+      "details": {
+        "price": "319.00",
+        "description": "The Football Is Good For Training And Recreational Purposes",
+        "color": "lime"
+      },
+      "stock": 55474,
+      "id": "56"
+    }
+  ]
