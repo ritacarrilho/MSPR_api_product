@@ -37,7 +37,7 @@ https://615f5fb4f7254d0017068109.mockapi.io/api/v1/products/
 ### Détails tables
 
 #### Table ``products``
-id (INT, clé primaire) : Identifiant unique pour chaque produit. 
+id_product (INT, clé primaire) : Identifiant unique pour chaque produit. 
 
 created_at (TIMESTAMP) : Date et heure de création du produit.
 
@@ -50,7 +50,7 @@ description (TEXT) : Description du produit.
 color (VARCHAR) : Couleur du produit. 
 
 #### Table ``stocks``
-id (INT, clé primaire) : Identifiant unique pour chaque enregistrement de stock. 
+id_stocks (INT, clé primaire) : Identifiant unique pour chaque enregistrement de stock. 
 
 product_id (INT, clé étrangère) : Référence au produit. 
 
