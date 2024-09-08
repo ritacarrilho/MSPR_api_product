@@ -1,24 +1,14 @@
-"""
-Module with all the API endpoints for products management.
-It includes the operations of creation, lecture, update and delete of products>
-"""
-
 from typing import List
 from fastapi import FastAPI, HTTPException, Depends
 
-
 app = FastAPI()
 
-@app.get("/", response_model=dict, tags=["Health Check"])
-def api_status():
-    """
-    Verifies the API status.
-
-    Returns:
-        dict: dict with the API status.
-    """
-    return {"status": "running"}
-
+app = FastAPI(
+    title="Paye ton kawa",
+    description="Le café c'est la vie",
+    summary="API Produits",
+    version="0.0.2",
+)
 
 
 @app.get("/products/", tags=["Products"])
