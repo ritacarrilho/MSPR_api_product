@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from .models import Product
+from .models import Product, Stock
 from fastapi import HTTPException
-from .schemas import StockCreate
-from .schemas import ProductCreate
+from .schemas import ProductCreate, StockCreate
+
 
 def get_all_products(db: Session):
     return db.query(Product).all()
