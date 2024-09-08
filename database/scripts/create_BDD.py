@@ -14,7 +14,8 @@ config = {
 db_name = 'product_db'
 
 # Chemin du fichier JSON
-json_file_path = os.path.join('..', 'data', 'data.json')
+# json_file_path = os.path.join('..', 'data', 'data.json')
+json_file_path = os.path.join(os.getcwd(), 'database/data', 'data.json')
 
 # Connexion à MySQL
 try:
