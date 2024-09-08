@@ -25,3 +25,16 @@ class Stock(BaseModel):
 
     class Config:
         orm_mode = True
+
+class StockBase(BaseModel):
+    quantity: int
+    id_product: int
+
+class StockCreate(StockBase):
+    pass
+
+class Stock(StockBase):
+    id_stocks: int
+
+    class Config:
+        orm_mode = True
