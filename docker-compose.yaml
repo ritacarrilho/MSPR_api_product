@@ -6,14 +6,15 @@ services:
     environment:
       MYSQL_USER: products
       MYSQL_PASSWORD: kawaproducts
-      MYSQL_DATABASE: kawaproductsdb
+      MYSQL_DATABASE: product_db
       MYSQL_ROOT_PASSWORD: rootpassword
     ports:
-      - "3254:3308" 
+      - "3308:3306" 
     expose:
-      - "3308"  
+      - "3306"
     volumes:
       - products-data:/var/lib/mysql
+      - ./database/scripts:/docker-entrypoint-initdb.d
     networks:
       - kawa-products-network
 
@@ -26,7 +27,7 @@ services:
     depends_on:
       - kawa-products-db
     environment:
-      - DATABASE_URL=mysql://products:kawaproducts@kawa-products-db:3308/kawaproductsdb
+      - DATABASE_URL=mysql+mysqlconnector://products:kawaproducts@kawa-products-db:3306/product_db  # Connecting to the correct internal port 3306
     networks:
       - kawa-products-network
 
