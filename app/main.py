@@ -43,3 +43,19 @@ def get_product_stock(id: int, db: Session = Depends(get_db)):
 ## Obtenir les produits avec un prix inférieur à une valeur spécifiée
 ## Obtenir le stock total pour chaque produit
 ## Obtenir les produits créés après une certaine date
+
+@app.post("/products/", response_model=schemas.Product, tags=["products"])
+def create_product(product: schemas.ProductCreate, db: Session = Depends(get_db)):
+    db_product = models.Product(**product.dict())
+    db.add(db_product)
+    db.commit()
+    db.refresh(db_product)
+    return db_product
+
+@app.post("/stocks/", response_model=schemas.Stock, tags=["stocks"])
+def create_stock(stock: schemas.StockCreate, db: Session = Depends(get_db)):
+    db_stock = models.Stock(**stock.dict())
+    db.add(db_stock)
+    db.commit()
+    db.refresh(db_stock)
+    return db_stock

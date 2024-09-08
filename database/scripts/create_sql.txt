@@ -4,7 +4,7 @@ CREATE DATABASE product_db;
 USE product_db;
 
 CREATE TABLE products(
-   id_product INT,
+   id_product INT AUTO_INCREMENT,
    created_at DATETIME NOT NULL,
    name VARCHAR(50) NOT NULL,
    price DECIMAL(10,2) NOT NULL,

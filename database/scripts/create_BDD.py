@@ -47,7 +47,7 @@ try:
     create_tables_queries = {
         'Products': """
             CREATE TABLE products (
-                id_product SMALLINT,
+                id_product INT AUTO_INCREMENT,
                 created_at DATETIME NOT NULL,
                 name VARCHAR(50) NOT NULL,
                 price DECIMAL(10,2) NOT NULL,
@@ -59,9 +59,9 @@ try:
         """,
         'Stocks': """
             CREATE TABLE stocks (
-                id_stocks SMALLINT AUTO_INCREMENT,
+                id_stocks INT AUTO_INCREMENT,
                 quantity INT NOT NULL,
-                id_product SMALLINT NOT NULL,
+                id_product INT NOT NULL,
                 PRIMARY KEY (id_stocks),
                 FOREIGN KEY (id_product) REFERENCES products(id_product)
             )
