@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from .models import Product
+from .models import Product, Stock
 from fastapi import HTTPException
-from .schemas import StockCreate
-from .schemas import ProductCreate
+from .schemas import ProductCreate, StockCreate
+
 
 def get_all_products(db: Session):
     return db.query(Product).all()
@@ -35,3 +35,19 @@ def create_stock(db: Session, stock: StockCreate):
     db.commit()
     db.refresh(db_stock)
     return db_stock
+
+def delete_product(db: Session, product_id: int):
+    db_product = db.query(Product).filter(Product.id_product == product_id).first()
+    if db_product is None:
+        raise HTTPException(status_code=404, detail="Product not found")
+
+    db.delete(db_product)
+    db.commit()
+
+def delete_stock(db: Session, stock_id: int):
+    db_stock = db.query(Stock).filter(Stock.id_stocks == stock_id).first()
+    if db_stock is None:
+        raise HTTPException(status_code=404, detail="Stock not found")
+
+    db.delete(db_stock)
+    db.commit()
