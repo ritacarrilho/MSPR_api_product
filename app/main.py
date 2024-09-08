@@ -59,3 +59,33 @@ def create_stock(stock: schemas.StockCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_stock)
     return db_stock
+
+@app.delete("/products/{id}", tags=["products"])
+def delete_product(id: int, db: Session = Depends(get_db)):
+    """
+    Supprime un produit de la base de données.
+
+    Args:
+        id (int): L'ID du produit à supprimer.
+        db (Session): La session de base de données.
+
+    Returns:
+        dict: Message de confirmation.
+    """
+    controllers.delete_product(db, id)
+    return {"detail": "Product deleted"}
+
+@app.delete("/stocks/{id}", tags=["stocks"])
+def delete_stock(id: int, db: Session = Depends(get_db)):
+    """
+    Supprime un stock de la base de données.
+
+    Args:
+        id (int): L'ID du stock à supprimer.
+        db (Session): La session de base de données.
+
+    Returns:
+        dict: Message de confirmation.
+    """
+    controllers.delete_stock(db, id)
+    return {"detail": "Stock deleted"}
