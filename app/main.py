@@ -36,3 +36,10 @@ def get_product_stock(id: int, db: Session = Depends(get_db)):
     if not stocks:
         raise HTTPException(status_code=404, detail="No stock found for this product")
     return stocks
+
+## requête GET en plus possible 
+## Obtenir les produits avec leur stock
+## Obtenir les produits par couleur
+## Obtenir les produits avec un prix inférieur à une valeur spécifiée
+## Obtenir le stock total pour chaque produit
+## Obtenir les produits créés après une certaine date
