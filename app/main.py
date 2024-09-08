@@ -1,31 +1,20 @@
-"""
-Module with all the API endpoints for products management.
-It includes the operations of creation, lecture, update and delete of products>
-"""
-
+from fastapi import FastAPI, Depends, HTTPException
+from sqlalchemy.orm import Session
 from typing import List
-from fastapi import FastAPI, HTTPException, Depends
+from . import models, schemas, controllers
+from .database import get_db
 
+app = FastAPI(
+    title="Paye ton kawa",
+    description="Le café c'est la vie",
+    summary="API Produits",
+    version="0.0.2",
+)
 
-app = FastAPI()
+@app.get("/products/", response_model=List[schemas.Product], tags=["products"])
+def get_products(db: Session = Depends(get_db)):
+    return controllers.get_all_products(db)
 
-@app.get("/", response_model=dict, tags=["Health Check"])
-def api_status():
-    """
-    Verifies the API status.
-
-    Returns:
-        dict: dict with the API status.
-    """
-    return {"status": "running"}
-
-
-
-@app.get("/products/", tags=["Products"])
-def get_products():
-    return {"get products": "ok"}
-
-
-@app.get("/products/{id}", tags=["Products"])
-def get_products():
-    return {"get product by id": "ok"}
+@app.get("/products/{id}", response_model=schemas.Product, tags=["products"])
+def get_product(id: int, db: Session = Depends(get_db)):
+    return controllers.get_product_by_id(db, id)
