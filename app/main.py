@@ -60,6 +60,16 @@ def create_stock(stock: schemas.StockCreate, db: Session = Depends(get_db)):
     db.refresh(db_stock)
     return db_stock
 
+@app.patch("/products/{id}", response_model=schemas.Product, tags=["products"])
+def update_product(id: int, product: schemas.ProductUpdate, db: Session = Depends(get_db)):
+    db_product = controllers.update_product(db, id, product)
+    return db_product
+
+@app.patch("/stocks/{id}", response_model=schemas.Stock, tags=["stocks"])
+def update_stock(id: int, stock: schemas.StockUpdate, db: Session = Depends(get_db)):
+    db_stock = controllers.update_stock(db, id, stock)
+    return db_stock
+
 @app.delete("/products/{id}", tags=["products"])
 def delete_product(id: int, db: Session = Depends(get_db)):
     """

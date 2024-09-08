@@ -38,3 +38,20 @@ class Stock(StockBase):
 
     class Config:
         orm_mode = True
+        
+class ProductUpdate(BaseModel):
+    created_at: Optional[datetime] = None
+    name: Optional[str] = None
+    price: Optional[float] = None
+    description: Optional[str] = None
+    color: Optional[str] = None
+
+    class Config:
+        orm_mode = True
+
+class StockUpdate(BaseModel):
+    quantity: Optional[int] = None
+    id_product: Optional[int] = None
+
+    class Config:
+        orm_mode = True

@@ -1,8 +1,7 @@
 from sqlalchemy.orm import Session
 from .models import Product, Stock
 from fastapi import HTTPException
-from .schemas import ProductCreate, StockCreate
-
+from .schemas import ProductCreate, StockCreate, ProductUpdate, StockUpdate
 
 def get_all_products(db: Session):
     return db.query(Product).all()
@@ -36,6 +35,32 @@ def create_stock(db: Session, stock: StockCreate):
     db.refresh(db_stock)
     return db_stock
 
+def update_product(db: Session, product_id: int, product_data: ProductUpdate):
+    db_product = db.query(Product).filter(Product.id_product == product_id).first()
+    if db_product is None:
+        raise HTTPException(status_code=404, detail="Product not found")
+
+    update_data = product_data.dict(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(db_product, key, value)
+
+    db.commit()
+    db.refresh(db_product)
+    return db_product
+
+def update_stock(db: Session, stock_id: int, stock_data: StockUpdate):
+    db_stock = db.query(Stock).filter(Stock.id_stocks == stock_id).first()
+    if db_stock is None:
+        raise HTTPException(status_code=404, detail="Stock not found")
+
+    update_data = stock_data.dict(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(db_stock, key, value)
+
+    db.commit()
+    db.refresh(db_stock)
+    return db_stock
+
 def delete_product(db: Session, product_id: int):
     db_product = db.query(Product).filter(Product.id_product == product_id).first()
     if db_product is None:
@@ -51,3 +76,4 @@ def delete_stock(db: Session, stock_id: int):
 
     db.delete(db_stock)
     db.commit()
+    
