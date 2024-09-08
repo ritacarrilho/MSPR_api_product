@@ -63,6 +63,7 @@ quantity (INT) : Quantité en stock.
 *Ce champ indique le nombre d'unités disponibles pour le produit référencé. Cela permet de gérer les niveaux de stock et de savoir quand il est nécessaire de réapprovisionner.*
 
 ## Endpoints de l'API
+![](/assets/api-endpoint.png)
 
 ## Docker
 
