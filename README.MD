@@ -64,7 +64,7 @@ https://615f5fb4f7254d0017068109.mockapi.io/api/v1/products/
 - **UNIQUE(name)** : Contraintes d'unicité sur le nom de la catégorie.
 - **FOREIGN KEY(id_product)** : Clé étrangère qui référence `id_product` dans la table `products`.
 
-#### Table suppliers
+#### Table `suppliers`
 - **id_supplier (INT, AUTO_INCREMENT, clé primaire)** : Identifiant unique pour chaque fournisseur.
 - **name (VARCHAR(50), NOT NULL)** : Nom du fournisseur.
 - **siret (VARCHAR(80), NOT NULL)** : Numéro SIRET du fournisseur.
@@ -76,7 +76,7 @@ https://615f5fb4f7254d0017068109.mockapi.io/api/v1/products/
 - **UNIQUE(name)** : Contrainte d'unicité sur le nom du fournisseur.
 - **UNIQUE(siret)** : Contrainte d'unicité sur le numéro SIRET du fournisseur.
 
-#### Table product_suppliers
+#### Table `product_suppliers`
 - **id_product (INT, NOT NULL)** : Référence au produit. Ce champ fait le lien avec la table `products` en stockant l'identifiant du produit correspondant.
 - **id_supplier (INT, NOT NULL)** : Référence au fournisseur. Ce champ fait le lien avec la table `suppliers` en stockant l'identifiant du fournisseur correspondant.
 - **PRIMARY KEY (id_product, id_supplier)** : Clé primaire composite qui assure l'unicité des paires produit-fournisseur.
