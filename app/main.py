@@ -98,3 +98,24 @@ def delete_stock(id: int, db: Session = Depends(get_db)):
     """
     controllers.delete_stock(db, id)
     return {"detail": "Stock deleted"}
+
+@app.get("/categories/", response_model=List[schemas.Category], tags=["categories"])
+def get_all_categories(db: Session = Depends(get_db)):
+    return controllers.get_all_categories(db)
+
+@app.get("/categories/{id}", response_model=schemas.Category, tags=["categories"])
+def get_category(id: int, db: Session = Depends(get_db)):
+    return controllers.get_category_by_id(db, id)
+
+@app.post("/categories/", response_model=schemas.Category, tags=["categories"])
+def create_category(category: schemas.CategoryCreate, db: Session = Depends(get_db)):
+    return controllers.create_category(db, category)
+
+@app.patch("/categories/{id}", response_model=schemas.Category, tags=["categories"])
+def update_category(id: int, category: schemas.CategoryUpdate, db: Session = Depends(get_db)):
+    return controllers.update_category(db, id, category)
+
+@app.delete("/categories/{id}", tags=["categories"])
+def delete_category(id: int, db: Session = Depends(get_db)):
+    controllers.delete_category(db, id)
+    return {"detail": "Category deleted successfully"}

@@ -58,3 +58,23 @@ class StockUpdate(BaseModel):
 
     class Config:
         orm_mode = True
+        
+
+class CategoryBase(BaseModel):
+    name: str
+    description: Optional[str] = None
+    id_product: int
+
+class CategoryCreate(CategoryBase):
+    pass
+
+class CategoryUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+    id_product: Optional[int] = None
+
+class Category(CategoryBase):
+    id_category: int
+
+    class Config:
+        orm_mode = True

@@ -12,8 +12,12 @@ class Product(Base):
     price = Column(DECIMAL(10, 2), nullable=False)
     description = Column(String(150))
     origin = Column(String(50), nullable=False)
-
+    
+    # Relation avec Stock
     stocks = relationship("Stock", back_populates="product")
+    
+    # Relation avec Category
+    categories = relationship("Category", back_populates="product")
 
 
 class Stock(Base):
@@ -28,3 +32,14 @@ class Stock(Base):
     product = relationship("Product", back_populates="stocks")
 
 # Product.stocks = relationship("Stock", back_populates="product")
+
+class Category(Base):
+    __tablename__ = 'categories'
+
+    id_category = Column(Integer, primary_key=True, index=True)
+    name = Column(String(50), unique=True, nullable=False)
+    description = Column(String(150))
+    id_product = Column(Integer, ForeignKey('products.id_product'), nullable=False)
+
+    # Relation avec Product
+    product = relationship("Product", back_populates="categories")
