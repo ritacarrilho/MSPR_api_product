@@ -112,5 +112,40 @@ fastapi dev main.py
 ```java
 find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 ```
+## Tests
+Librairie utilisé : [unittest](https://docs.python.org/3/library/unittest.html)
+```python
+pip install fastapi requests sqlalchemy
+```
 
+Exécuter les tests : 
+```python
+python -m unittest tests/test_api.py
+```
+### Tests unitaires et d'intégration
 
+![](/assets/test-ok.png)
+
+| Test | Description | Type de Test |
+|------|-------------|--------------|
+| `test_database_connection` | Teste la connexion à la base de données. | Unitaire |
+| `test_table_orders_exists` | Vérifie que la table 'orders' existe dans `test_db`. | Unitaire |
+| `test_table_order_products_exists` | Vérifie que la table 'order_products' existe dans `test_db`. | Unitaire |
+| `test_insert_into_orders` | Teste l'insertion d'une commande dans la table 'orders'. | Intégration |
+| `test_insert_into_order_products` | Teste l'insertion d'un produit dans la table 'order_products'. | Intégration |
+| `test_read_from_orders` | Teste la lecture des données insérées dans la table 'orders'. | Intégration |
+| `test_update_orders` | Teste la mise à jour d'une commande dans la table 'orders'. | Intégration |
+| `test_delete_from_orders` | Teste la suppression d'une commande dans la table 'orders'. | Intégration |
+| `test_read_from_order_products` | Teste la lecture des données insérées dans la table 'order_products'. | Intégration |
+
+#### Rapport de test en format XML
+```python
+pytest --junitxml=report.xml
+```
+#### Rapport de test en format HTML
+```python
+coverage run -m unittest discover
+coverage report
+coverage html
+```
+![](/assets/coverage.png)
