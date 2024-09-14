@@ -131,7 +131,7 @@ python -m unittest tests/test_api.py
 | `test_connection`                          | Teste la connexion à la base de données.                       | Unitaire       |
 | `test_table_exists`                        | Vérifie que la table spécifiée existe dans la base de données. | Unitaire       |
 | `test_insert`                              | Teste l'insertion de données dans la table spécifiée.          | Intégration       |
-| `test_read`                                | Teste la lecture des données dans la table spécifiée.          | Intégration       |
+| `test_read`                                | Teste la lecture des données dans la table spécifiée.          | Unitaire       |
 | `test_update`                              | Teste la mise à jour des données dans la table spécifiée.      | Intégration       |
 | `test_delete`                              | Teste la suppression de données dans la table spécifiée.       | Intégration       |
 | `test_table_products_exists`              | Vérifie que la table `products` existe dans la base de données. | Unitaire          |
@@ -140,7 +140,7 @@ python -m unittest tests/test_api.py
 | `test_table_suppliers_exists`             | Vérifie que la table `suppliers` existe dans la base de données. | Unitaire          |
 | `test_table_product_suppliers_exists`     | Vérifie que la table `product_suppliers` existe dans la base de données. | Unitaire          |
 | `test_insert_into_products`                | Teste l'insertion de données dans la table `products`.          | Intégration       |
-| `test_read_from_products`                  | Teste la lecture des données dans la table `products`.          | Intégration       |
+| `test_read_from_products`                  | Teste la lecture des données dans la table `products`.          | Unitaire       |
 | `test_update_products`                     | Teste la mise à jour des données dans la table `products`.      | Intégration       |
 | `test_delete_from_products`                | Teste la suppression de données dans la table `products`.       | Intégration       |
 
