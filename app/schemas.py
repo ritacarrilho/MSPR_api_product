@@ -4,7 +4,7 @@ from datetime import datetime
 
 class ProductBase(BaseModel):
     created_at: datetime
-    update_at : datetime
+    update_at: Optional[datetime] = None
     name: str
     price: float
     description: Optional[str] = None

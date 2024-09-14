@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 14 sep. 2024 à 10:11
+-- Généré le : sam. 14 sep. 2024 à 09:09
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.13
 
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id_product`, `created_at`, `update_at`, `name`, `price`, `description`, `origin`) VALUES
-(1, '2024-09-14 12:11:26', NULL, 'Café Arabica', '12.99', 'Café de haute qualité avec un goût doux et fruité.', 'Colombie'),
-(2, '2024-09-14 12:11:26', NULL, 'Café Robusta', '10.99', 'Café fort avec un goût amer, idéal pour les expresso.', 'Vietnam'),
-(3, '2024-09-14 12:11:26', NULL, 'Café Décaféiné', '11.99', 'Café sans caféine pour une consommation sans stimulant.', 'Brésil');
+(1, '0000-00-00 00:00:00', NULL, 'Café Arabica', '12.99', 'Café de haute qualité avec un goût doux et fruité.', 'Colombie'),
+(2, '0000-00-00 00:00:00', NULL, 'Café Robusta', '10.99', 'Café fort avec un goût amer, idéal pour les expresso.', 'Vietnam'),
+(3, '0000-00-00 00:00:00', NULL, 'Café Décaféiné', '11.99', 'Café sans caféine pour une consommation sans stimulant.', 'Brésil');
 
 -- --------------------------------------------------------
 
@@ -123,9 +123,9 @@ CREATE TABLE IF NOT EXISTS `stocks` (
 --
 
 INSERT INTO `stocks` (`id_stocks`, `quantity`, `created_at`, `update_at`, `id_product`) VALUES
-(1, 100, '2024-09-14 12:11:26', NULL, 1),
-(2, 50, '2024-09-14 12:11:26', NULL, 2),
-(3, 75, '2024-09-14 12:11:26', NULL, 3);
+(1, 100, NULL, NULL, 1),
+(2, 50, NULL, NULL, 2),
+(3, 75, NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -153,11 +153,11 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id_supplier`, `name`, `siret`, `address`, `email`, `phone`, `created_at`, `update_at`) VALUES
-(1, 'Fournisseur A', '12345678901234', '123 Rue de Paris, Paris, France', 'contact@fournisseura.com', '0123456789', '2024-09-14 12:11:26', '2024-09-14 12:11:26'),
-(2, 'Fournisseur B', '23456789012345', '456 Avenue de Lyon, Lyon, France', 'info@fournisseurb.com', '0987654321', '2024-09-14 12:11:26', '2024-09-14 12:11:26'),
-(3, 'Fournisseur C', '34567890123456', '789 Boulevard de Marseille, Marseille, France', 'support@fournisseure.com', '0147258369', '2024-09-14 12:11:26', '2024-09-14 12:11:26'),
-(4, 'Fournisseur D', '45678901234567', '321 Route de Nice, Nice, France', 'sales@fournisseurd.com', '0167894321', '2024-09-14 12:11:26', '2024-09-14 12:11:26'),
-(5, 'Fournisseur E', '56789012345678', '654 Chemin de Bordeaux, Bordeaux, France', 'contact@fournisseure.com', '0176543210', '2024-09-14 12:11:26', '2024-09-14 12:11:26');
+(1, 'Fournisseur A', '12345678901234', '123 Rue de Paris, Paris, France', 'contact@fournisseura.com', '0123456789', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(2, 'Fournisseur B', '23456789012345', '456 Avenue de Lyon, Lyon, France', 'info@fournisseurb.com', '0987654321', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(3, 'Fournisseur C', '34567890123456', '789 Boulevard de Marseille, Marseille, France', 'support@fournisseure.com', '0147258369', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(4, 'Fournisseur D', '45678901234567', '321 Route de Nice, Nice, France', 'sales@fournisseurd.com', '0167894321', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(5, 'Fournisseur E', '56789012345678', '654 Chemin de Bordeaux, Bordeaux, France', 'contact@fournisseure.com', '0176543210', '2024-09-14 11:09:22', '2024-09-14 11:09:22');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

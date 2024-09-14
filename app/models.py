@@ -7,7 +7,7 @@ class Product(Base):
 
     id_product = Column(Integer, primary_key=True, index=True)
     created_at = Column(DateTime, nullable=False)
-    update_at  = Column(DateTime, nullable=False)
+    update_at  = Column(DateTime)
     name = Column(String(50), unique=True, nullable=False)
     price = Column(DECIMAL(10, 2), nullable=False)
     description = Column(String(150))

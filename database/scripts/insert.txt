@@ -1,12 +1,12 @@
-INSERT INTO products (name, price, description, origin) VALUES
-('Café Arabica', 12.99, 'Café de haute qualité avec un goût doux et fruité.', 'Colombie'),
-('Café Robusta', 10.99, 'Café fort avec un goût amer, idéal pour les expresso.', 'Vietnam'),
-('Café Décaféiné', 11.99, 'Café sans caféine pour une consommation sans stimulant.', 'Brésil');
+INSERT INTO products (created_at, name, price, description, origin) VALUES
+(NOW(),'Café Arabica', 12.99, 'Café de haute qualité avec un goût doux et fruité.', 'Colombie'),
+(NOW(),'Café Robusta', 10.99, 'Café fort avec un goût amer, idéal pour les expresso.', 'Vietnam'),
+(NOW(),'Café Décaféiné', 11.99, 'Café sans caféine pour une consommation sans stimulant.', 'Brésil');
 
-INSERT INTO stocks (quantity, id_product) VALUES
-(100, 1),
-(50, 2),
-(75, 3);
+INSERT INTO stocks (quantity, id_product, created_at) VALUES
+(100, 1, NOW()),
+(50, 2, NOW()),
+(75, 3, NOW());
 
 INSERT INTO categories (name, description) VALUES
 ('Café Arabica', 'Café de haute qualité avec un goût doux et fruité.'),
