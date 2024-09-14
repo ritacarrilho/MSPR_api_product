@@ -112,3 +112,13 @@ class Supplier(SupplierBase):
         orm_mode = True
 
 # --------------------- Product suppliers schemas --------------------- #
+class ProductSupplierBase(BaseModel):
+    id_product: int
+    id_supplier: int
+
+class ProductSupplierCreate(ProductSupplierBase):
+    pass
+
+class ProductSupplier(ProductSupplierBase):
+    class Config:
+        orm_mode = True

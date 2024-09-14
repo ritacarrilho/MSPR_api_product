@@ -147,3 +147,19 @@ def delete_supplier(id: int, db: Session = Depends(get_db)):
     return {"message": "Supplier deleted successfully"}
 
 # --------------------- Product suppliers endpoints --------------------- #
+@app.get("/product_suppliers/", response_model=List[schemas.ProductSupplier], tags=["product_suppliers"])
+def get_all_product_suppliers(db: Session = Depends(get_db)):
+    return controllers.get_all_product_suppliers(db)
+
+@app.get("/product_suppliers/{product_id}/{supplier_id}", response_model=schemas.ProductSupplier, tags=["product_suppliers"])
+def get_product_supplier(product_id: int, supplier_id: int, db: Session = Depends(get_db)):
+    return controllers.get_product_supplier(db, product_id, supplier_id)
+
+@app.post("/product_suppliers/", response_model=schemas.ProductSupplier, tags=["product_suppliers"])
+def create_product_supplier(product_supplier: schemas.ProductSupplierCreate, db: Session = Depends(get_db)):
+    return controllers.create_product_supplier(db, product_supplier)
+
+@app.delete("/product_suppliers/{product_id}/{supplier_id}", tags=["product_suppliers"])
+def delete_product_supplier(product_id: int, supplier_id: int, db: Session = Depends(get_db)):
+    controllers.delete_product_supplier(db, product_id, supplier_id)
+    return {"message": "Product-Supplier relation deleted successfully"}

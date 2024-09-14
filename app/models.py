@@ -19,6 +19,8 @@ class Product(Base):
     # Relation avec Category
     categories = relationship("Category", back_populates="product")
 
+    # Relation avec ProductSupplier
+    suppliers = relationship("ProductSupplier", back_populates="product")
 
 class Stock(Base):
     __tablename__ = 'stocks'
@@ -56,3 +58,14 @@ class Supplier(Base):
     phone = Column(String(50))
     created_at = Column(DateTime, nullable=False)
     update_at = Column(DateTime)
+    
+    products = relationship("ProductSupplier", back_populates="supplier")
+
+class ProductSupplier(Base):
+    __tablename__ = 'product_suppliers'
+
+    id_product = Column(Integer, ForeignKey("products.id_product"), primary_key=True)
+    id_supplier = Column(Integer, ForeignKey("suppliers.id_supplier"), primary_key=True)
+
+    product = relationship("Product", back_populates="suppliers")
+    supplier = relationship("Supplier", back_populates="products")

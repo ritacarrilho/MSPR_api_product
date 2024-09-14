@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
-from .models import Product, Stock, Category, Supplier
+from .models import Product, Stock, Category, Supplier, ProductSupplier
 from fastapi import HTTPException
-from .schemas import ProductCreate, StockCreate, ProductUpdate, StockUpdate, CategoryCreate, CategoryUpdate, SupplierCreate, SupplierUpdate
+from .schemas import ProductCreate, StockCreate, ProductUpdate, StockUpdate, CategoryCreate, CategoryUpdate, SupplierCreate, SupplierUpdate, ProductSupplierCreate
 
 # --------------------- Products & Stocks Controllers --------------------- #
 
@@ -157,3 +157,32 @@ def delete_supplier(db: Session, supplier_id: int):
     db.commit()
 
 # --------------------- Product suppliers Controllers --------------------- #
+def get_all_product_suppliers(db: Session):
+    return db.query(ProductSupplier).all()
+
+def get_product_supplier(db: Session, product_id: int, supplier_id: int):
+    product_supplier = db.query(ProductSupplier).filter(
+        ProductSupplier.id_product == product_id,
+        ProductSupplier.id_supplier == supplier_id
+    ).first()
+    if product_supplier is None:
+        raise HTTPException(status_code=404, detail="Product-Supplier relation not found")
+    return product_supplier
+
+def create_product_supplier(db: Session, product_supplier: ProductSupplierCreate):
+    db_product_supplier = ProductSupplier(**product_supplier.dict())
+    db.add(db_product_supplier)
+    db.commit()
+    db.refresh(db_product_supplier)
+    return db_product_supplier
+
+def delete_product_supplier(db: Session, product_id: int, supplier_id: int):
+    product_supplier = db.query(ProductSupplier).filter(
+        ProductSupplier.id_product == product_id,
+        ProductSupplier.id_supplier == supplier_id
+    ).first()
+    if product_supplier is None:
+        raise HTTPException(status_code=404, detail="Product-Supplier relation not found")
+
+    db.delete(product_supplier)
+    db.commit()
