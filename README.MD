@@ -71,6 +71,8 @@ quantity (INT) : Quantité en stock.
 
 2) Start container : ```docker-compose up```
 
+3) Create network : ```docker network create kawa-shared-network```
+
 ## Commandes utiles
 
 ### Lancer l'api en local
