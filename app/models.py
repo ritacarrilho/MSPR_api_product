@@ -7,10 +7,11 @@ class Product(Base):
 
     id_product = Column(Integer, primary_key=True, index=True)
     created_at = Column(DateTime, nullable=False)
+    update_at  = Column(DateTime, nullable=False)
     name = Column(String(50), unique=True, nullable=False)
     price = Column(DECIMAL(10, 2), nullable=False)
     description = Column(String(150))
-    color = Column(String(50), nullable=False)
+    origin = Column(String(50), nullable=False)
 
     stocks = relationship("Stock", back_populates="product")
 

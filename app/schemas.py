@@ -4,10 +4,11 @@ from datetime import datetime
 
 class ProductBase(BaseModel):
     created_at: datetime
+    update_at : datetime
     name: str
     price: float
     description: Optional[str] = None
-    color: str
+    origin : str
 
 class ProductCreate(ProductBase):
     pass
@@ -41,10 +42,11 @@ class Stock(StockBase):
         
 class ProductUpdate(BaseModel):
     created_at: Optional[datetime] = None
+    update_at : Optional[datetime] = None
     name: Optional[str] = None
     price: Optional[float] = None
     description: Optional[str] = None
-    color: Optional[str] = None
+    origin : Optional[str] = None
 
     class Config:
         orm_mode = True

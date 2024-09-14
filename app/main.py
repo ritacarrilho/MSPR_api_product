@@ -39,7 +39,6 @@ def get_product_stock(id: int, db: Session = Depends(get_db)):
 
 ## requête GET en plus possible 
 ## Obtenir les produits avec leur stock
-## Obtenir les produits par couleur
 ## Obtenir les produits avec un prix inférieur à une valeur spécifiée
 ## Obtenir le stock total pour chaque produit
 ## Obtenir les produits créés après une certaine date
