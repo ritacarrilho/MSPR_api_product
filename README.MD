@@ -126,17 +126,23 @@ python -m unittest tests/test_api.py
 
 ![](/assets/test-ok.png)
 
-| Test | Description | Type de Test |
-|------|-------------|--------------|
-| `test_database_connection` | Teste la connexion à la base de données. | Unitaire |
-| `test_table_orders_exists` | Vérifie que la table 'orders' existe dans `test_db`. | Unitaire |
-| `test_table_order_products_exists` | Vérifie que la table 'order_products' existe dans `test_db`. | Unitaire |
-| `test_insert_into_orders` | Teste l'insertion d'une commande dans la table 'orders'. | Intégration |
-| `test_insert_into_order_products` | Teste l'insertion d'un produit dans la table 'order_products'. | Intégration |
-| `test_read_from_orders` | Teste la lecture des données insérées dans la table 'orders'. | Intégration |
-| `test_update_orders` | Teste la mise à jour d'une commande dans la table 'orders'. | Intégration |
-| `test_delete_from_orders` | Teste la suppression d'une commande dans la table 'orders'. | Intégration |
-| `test_read_from_order_products` | Teste la lecture des données insérées dans la table 'order_products'. | Intégration |
+| **Nom du Test**                              | **Description**                                                | **Type**          |
+|---------------------------------------------|----------------------------------------------------------------|-------------------|
+| `test_connection`                          | Teste la connexion à la base de données.                       | Unitaire       |
+| `test_table_exists`                        | Vérifie que la table spécifiée existe dans la base de données. | Unitaire       |
+| `test_insert`                              | Teste l'insertion de données dans la table spécifiée.          | Intégration       |
+| `test_read`                                | Teste la lecture des données dans la table spécifiée.          | Intégration       |
+| `test_update`                              | Teste la mise à jour des données dans la table spécifiée.      | Intégration       |
+| `test_delete`                              | Teste la suppression de données dans la table spécifiée.       | Intégration       |
+| `test_table_products_exists`              | Vérifie que la table `products` existe dans la base de données. | Unitaire          |
+| `test_table_stocks_exists`                | Vérifie que la table `stocks` existe dans la base de données.   | Unitaire          |
+| `test_table_categories_exists`            | Vérifie que la table `categories` existe dans la base de données. | Unitaire          |
+| `test_table_suppliers_exists`             | Vérifie que la table `suppliers` existe dans la base de données. | Unitaire          |
+| `test_table_product_suppliers_exists`     | Vérifie que la table `product_suppliers` existe dans la base de données. | Unitaire          |
+| `test_insert_into_products`                | Teste l'insertion de données dans la table `products`.          | Intégration       |
+| `test_read_from_products`                  | Teste la lecture des données dans la table `products`.          | Intégration       |
+| `test_update_products`                     | Teste la mise à jour des données dans la table `products`.      | Intégration       |
+| `test_delete_from_products`                | Teste la suppression de données dans la table `products`.       | Intégration       |
 
 #### Rapport de test en format XML
 ```python
