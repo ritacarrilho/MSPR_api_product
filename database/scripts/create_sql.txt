@@ -6,10 +6,11 @@ USE product_db;
 CREATE TABLE products(
    id_product INT AUTO_INCREMENT,
    created_at DATETIME NOT NULL,
+   update_at DATETIME,
    name VARCHAR(50) NOT NULL,
    price DECIMAL(10,2) NOT NULL,
    description VARCHAR(150),
-   color VARCHAR(50) NOT NULL,
+   origin VARCHAR(50) NOT NULL,
    PRIMARY KEY(id_product),
    UNIQUE(name)
 );
@@ -17,7 +18,19 @@ CREATE TABLE products(
 CREATE TABLE stocks(
    id_stocks INT AUTO_INCREMENT,
    quantity INT NOT NULL,
+   created_at DATETIME,
+   update_at DATETIME,
    id_product INT NOT NULL,
    PRIMARY KEY(id_stocks),
+   FOREIGN KEY(id_product) REFERENCES products(id_product)
+);
+
+CREATE TABLE categories(
+   id_category INT AUTO_INCREMENT,
+   name VARCHAR(50) NOT NULL,
+   description VARCHAR(150),
+   id_product INT NOT NULL,
+   PRIMARY KEY(id_category),
+   UNIQUE(name),
    FOREIGN KEY(id_product) REFERENCES products(id_product)
 );
