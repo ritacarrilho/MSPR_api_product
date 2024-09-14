@@ -3,6 +3,8 @@ from .models import Product, Stock, Category
 from fastapi import HTTPException
 from .schemas import ProductCreate, StockCreate, ProductUpdate, StockUpdate, CategoryCreate, CategoryUpdate
 
+# --------------------- Products & Stocks Controllers --------------------- #
+
 def get_all_products(db: Session):
     return db.query(Product).all()
 
@@ -77,7 +79,7 @@ def delete_stock(db: Session, stock_id: int):
     db.delete(db_stock)
     db.commit()
     
-
+# --------------------- Categories Controllers --------------------- #
 
 def get_all_categories(db: Session):
     return db.query(Category).all()
@@ -115,3 +117,7 @@ def delete_category(db: Session, category_id: int):
 
     db.delete(db_category)
     db.commit()
+
+# --------------------- Suppliers Controllers --------------------- #
+
+# --------------------- Product suppliers Controllers --------------------- #

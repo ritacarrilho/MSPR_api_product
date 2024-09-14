@@ -2,6 +2,8 @@ from pydantic import BaseModel
 from typing import Optional, List
 from datetime import datetime
 
+# --------------------- Products schemas --------------------- #
+
 class ProductBase(BaseModel):
     created_at: datetime
     update_at: Optional[datetime] = None
@@ -18,6 +20,8 @@ class Product(ProductBase):
 
     class Config:
         orm_mode = True
+        
+# --------------------- Stocks schemas --------------------- #
 
 class Stock(BaseModel):
     quantity: int
@@ -58,7 +62,8 @@ class StockUpdate(BaseModel):
 
     class Config:
         orm_mode = True
-        
+
+# --------------------- Categories schemas --------------------- #
 
 class CategoryBase(BaseModel):
     name: str
@@ -78,3 +83,6 @@ class Category(CategoryBase):
 
     class Config:
         orm_mode = True
+
+# --------------------- Suppliers schemas --------------------- #
+# --------------------- Product suppliers schemas --------------------- #

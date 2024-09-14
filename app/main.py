@@ -11,6 +11,8 @@ app = FastAPI(
     version="0.0.2",
 )
 
+# --------------------- Products & stocks endpoints --------------------- #
+
 @app.get("/products/", response_model=List[schemas.Product], tags=["products"])
 def get_products(db: Session = Depends(get_db)):
     return controllers.get_all_products(db)
@@ -99,6 +101,8 @@ def delete_stock(id: int, db: Session = Depends(get_db)):
     controllers.delete_stock(db, id)
     return {"detail": "Stock deleted"}
 
+# --------------------- Categories endpoints --------------------- #
+
 @app.get("/categories/", response_model=List[schemas.Category], tags=["categories"])
 def get_all_categories(db: Session = Depends(get_db)):
     return controllers.get_all_categories(db)
@@ -119,3 +123,6 @@ def update_category(id: int, category: schemas.CategoryUpdate, db: Session = Dep
 def delete_category(id: int, db: Session = Depends(get_db)):
     controllers.delete_category(db, id)
     return {"detail": "Category deleted successfully"}
+
+# --------------------- Suppliers endpoints --------------------- #
+# --------------------- Product suppliers endpoints --------------------- #
