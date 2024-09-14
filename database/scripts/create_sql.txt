@@ -34,3 +34,25 @@ CREATE TABLE categories(
    UNIQUE(name),
    FOREIGN KEY(id_product) REFERENCES products(id_product)
 );
+
+CREATE TABLE suppliers(
+   id_supplier INT AUTO_INCREMENT,
+   name VARCHAR(50) NOT NULL,
+   siret VARCHAR(80) NOT NULL,
+   address VARCHAR(150),
+   email VARCHAR(50),
+   phone VARCHAR(50),
+   created_at DATETIME NOT NULL,
+   update_at DATETIME,
+   PRIMARY KEY(id_supplier),
+   UNIQUE(name),
+   UNIQUE(siret)
+);
+
+CREATE TABLE product_suppliers(
+   id_product INT,
+   id_supplier INT,
+   PRIMARY KEY(id_product, id_supplier),
+   FOREIGN KEY(id_product) REFERENCES products(id_product),
+   FOREIGN KEY(id_supplier) REFERENCES suppliers(id_supplier)
+);

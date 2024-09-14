@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 14 sep. 2024 à 08:53
+-- Généré le : sam. 14 sep. 2024 à 09:09
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.13
 
@@ -78,6 +78,32 @@ INSERT INTO `products` (`id_product`, `created_at`, `update_at`, `name`, `price`
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `product_suppliers`
+--
+
+DROP TABLE IF EXISTS `product_suppliers`;
+CREATE TABLE IF NOT EXISTS `product_suppliers` (
+  `id_product` int NOT NULL,
+  `id_supplier` int NOT NULL,
+  PRIMARY KEY (`id_product`,`id_supplier`),
+  KEY `id_supplier` (`id_supplier`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `product_suppliers`
+--
+
+INSERT INTO `product_suppliers` (`id_product`, `id_supplier`) VALUES
+(1, 1),
+(1, 2),
+(2, 1),
+(2, 3),
+(3, 2),
+(3, 4);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `stocks`
 --
 
@@ -100,6 +126,38 @@ INSERT INTO `stocks` (`id_stocks`, `quantity`, `created_at`, `update_at`, `id_pr
 (1, 100, NULL, NULL, 1),
 (2, 50, NULL, NULL, 2),
 (3, 75, NULL, NULL, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `suppliers`
+--
+
+DROP TABLE IF EXISTS `suppliers`;
+CREATE TABLE IF NOT EXISTS `suppliers` (
+  `id_supplier` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `siret` varchar(80) NOT NULL,
+  `address` varchar(150) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `update_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_supplier`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `siret` (`siret`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `suppliers`
+--
+
+INSERT INTO `suppliers` (`id_supplier`, `name`, `siret`, `address`, `email`, `phone`, `created_at`, `update_at`) VALUES
+(1, 'Fournisseur A', '12345678901234', '123 Rue de Paris, Paris, France', 'contact@fournisseura.com', '0123456789', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(2, 'Fournisseur B', '23456789012345', '456 Avenue de Lyon, Lyon, France', 'info@fournisseurb.com', '0987654321', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(3, 'Fournisseur C', '34567890123456', '789 Boulevard de Marseille, Marseille, France', 'support@fournisseure.com', '0147258369', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(4, 'Fournisseur D', '45678901234567', '321 Route de Nice, Nice, France', 'sales@fournisseurd.com', '0167894321', '2024-09-14 11:09:22', '2024-09-14 11:09:22'),
+(5, 'Fournisseur E', '56789012345678', '654 Chemin de Bordeaux, Bordeaux, France', 'contact@fournisseure.com', '0176543210', '2024-09-14 11:09:22', '2024-09-14 11:09:22');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
