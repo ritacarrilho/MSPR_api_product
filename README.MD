@@ -64,6 +64,25 @@ https://615f5fb4f7254d0017068109.mockapi.io/api/v1/products/
 - **UNIQUE(name)** : Contraintes d'unicité sur le nom de la catégorie.
 - **FOREIGN KEY(id_product)** : Clé étrangère qui référence `id_product` dans la table `products`.
 
+#### Table suppliers
+- **id_supplier (INT, AUTO_INCREMENT, clé primaire)** : Identifiant unique pour chaque fournisseur.
+- **name (VARCHAR(50), NOT NULL)** : Nom du fournisseur.
+- **siret (VARCHAR(80), NOT NULL)** : Numéro SIRET du fournisseur.
+- **address (VARCHAR(150))** : Adresse du fournisseur.
+- **email (VARCHAR(50))** : Adresse e-mail du fournisseur.
+- **phone (VARCHAR(50))** : Numéro de téléphone du fournisseur.
+- **created_at (DATETIME, NOT NULL)** : Date et heure de création de l'enregistrement.
+- **update_at (DATETIME)** : Date et heure de la dernière mise à jour.
+- **UNIQUE(name)** : Contrainte d'unicité sur le nom du fournisseur.
+- **UNIQUE(siret)** : Contrainte d'unicité sur le numéro SIRET du fournisseur.
+
+#### Table product_suppliers
+- **id_product (INT, NOT NULL)** : Référence au produit. Ce champ fait le lien avec la table `products` en stockant l'identifiant du produit correspondant.
+- **id_supplier (INT, NOT NULL)** : Référence au fournisseur. Ce champ fait le lien avec la table `suppliers` en stockant l'identifiant du fournisseur correspondant.
+- **PRIMARY KEY (id_product, id_supplier)** : Clé primaire composite qui assure l'unicité des paires produit-fournisseur.
+- **FOREIGN KEY(id_product)** : Clé étrangère qui référence `id_product` dans la table `products`.
+- **FOREIGN KEY(id_supplier)** : Clé étrangère qui référence `id_supplier` dans la table `suppliers`.
+
 ## Endpoints de l'API
 ![](/assets/api-endpoint.png)
 
