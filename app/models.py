@@ -43,3 +43,16 @@ class Category(Base):
 
     # Relation avec Product
     product = relationship("Product", back_populates="categories")
+
+
+class Supplier(Base):
+    __tablename__ = 'suppliers'
+
+    id_supplier = Column(Integer, primary_key=True, index=True)
+    name = Column(String(50), unique=True, nullable=False)
+    siret = Column(String(80), unique=True, nullable=False)
+    address = Column(String(150))
+    email = Column(String(50))
+    phone = Column(String(50))
+    created_at = Column(DateTime, nullable=False)
+    update_at = Column(DateTime)

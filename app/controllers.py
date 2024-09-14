@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
-from .models import Product, Stock, Category
+from .models import Product, Stock, Category, Supplier
 from fastapi import HTTPException
-from .schemas import ProductCreate, StockCreate, ProductUpdate, StockUpdate, CategoryCreate, CategoryUpdate
+from .schemas import ProductCreate, StockCreate, ProductUpdate, StockUpdate, CategoryCreate, CategoryUpdate, SupplierCreate, SupplierUpdate
 
 # --------------------- Products & Stocks Controllers --------------------- #
 
@@ -119,5 +119,41 @@ def delete_category(db: Session, category_id: int):
     db.commit()
 
 # --------------------- Suppliers Controllers --------------------- #
+def get_all_suppliers(db: Session):
+    return db.query(Supplier).all()
+
+def get_supplier_by_id(db: Session, supplier_id: int):
+    supplier = db.query(Supplier).filter(Supplier.id_supplier == supplier_id).first()
+    if supplier is None:
+        raise HTTPException(status_code=404, detail="Supplier not found")
+    return supplier
+
+def create_supplier(db: Session, supplier: SupplierCreate):
+    db_supplier = Supplier(**supplier.dict())
+    db.add(db_supplier)
+    db.commit()
+    db.refresh(db_supplier)
+    return db_supplier
+
+def update_supplier(db: Session, supplier_id: int, supplier_data: SupplierUpdate):
+    db_supplier = db.query(Supplier).filter(Supplier.id_supplier == supplier_id).first()
+    if db_supplier is None:
+        raise HTTPException(status_code=404, detail="Supplier not found")
+
+    update_data = supplier_data.dict(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(db_supplier, key, value)
+
+    db.commit()
+    db.refresh(db_supplier)
+    return db_supplier
+
+def delete_supplier(db: Session, supplier_id: int):
+    db_supplier = db.query(Supplier).filter(Supplier.id_supplier == supplier_id).first()
+    if db_supplier is None:
+        raise HTTPException(status_code=404, detail="Supplier not found")
+
+    db.delete(db_supplier)
+    db.commit()
 
 # --------------------- Product suppliers Controllers --------------------- #

@@ -85,4 +85,30 @@ class Category(CategoryBase):
         orm_mode = True
 
 # --------------------- Suppliers schemas --------------------- #
+class SupplierBase(BaseModel):
+    name: str
+    siret: str
+    address: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    created_at: datetime
+    update_at: Optional[datetime] = None
+
+class SupplierCreate(SupplierBase):
+    pass
+
+class SupplierUpdate(BaseModel):
+    name: Optional[str] = None
+    siret: Optional[str] = None
+    address: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    update_at: Optional[datetime] = None
+
+class Supplier(SupplierBase):
+    id_supplier: int
+
+    class Config:
+        orm_mode = True
+
 # --------------------- Product suppliers schemas --------------------- #

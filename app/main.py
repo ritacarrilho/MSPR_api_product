@@ -125,4 +125,25 @@ def delete_category(id: int, db: Session = Depends(get_db)):
     return {"detail": "Category deleted successfully"}
 
 # --------------------- Suppliers endpoints --------------------- #
+@app.get("/suppliers/", response_model=List[schemas.Supplier], tags=["suppliers"])
+def get_all_suppliers(db: Session = Depends(get_db)):
+    return controllers.get_all_suppliers(db)
+
+@app.get("/suppliers/{id}", response_model=schemas.Supplier, tags=["suppliers"])
+def get_supplier(id: int, db: Session = Depends(get_db)):
+    return controllers.get_supplier_by_id(db, id)
+
+@app.post("/suppliers/", response_model=schemas.Supplier, tags=["suppliers"])
+def create_supplier(supplier: schemas.SupplierCreate, db: Session = Depends(get_db)):
+    return controllers.create_supplier(db, supplier)
+
+@app.patch("/suppliers/{id}", response_model=schemas.Supplier, tags=["suppliers"])
+def update_supplier(id: int, supplier: schemas.SupplierUpdate, db: Session = Depends(get_db)):
+    return controllers.update_supplier(db, id, supplier)
+
+@app.delete("/suppliers/{id}", tags=["suppliers"])
+def delete_supplier(id: int, db: Session = Depends(get_db)):
+    controllers.delete_supplier(db, id)
+    return {"message": "Supplier deleted successfully"}
+
 # --------------------- Product suppliers endpoints --------------------- #
