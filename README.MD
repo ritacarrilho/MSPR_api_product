@@ -84,7 +84,9 @@ https://615f5fb4f7254d0017068109.mockapi.io/api/v1/products/
 - **FOREIGN KEY(id_supplier)** : Clé étrangère qui référence `id_supplier` dans la table `suppliers`.
 
 ## Endpoints de l'API
-![](/assets/api-endpoint.png)
+![](/assets/ed-1.png)
+![](/assets/ed-2.png)
+![](/assets/ed-3.png)
 
 ## Docker
 
