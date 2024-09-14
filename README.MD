@@ -38,29 +38,31 @@ https://615f5fb4f7254d0017068109.mockapi.io/api/v1/products/
 
 ### Détails tables
 
-#### Table ``products``
-id_product (INT, clé primaire) : Identifiant unique pour chaque produit. 
+#### Table `products`
+- **id_product (INT, AUTO_INCREMENT, clé primaire)** : Identifiant unique pour chaque produit.
+- **created_at (DATETIME, NOT NULL)** : Date et heure de création du produit.
+- **update_at (DATETIME)** : Date et heure de la dernière mise à jour du produit.
+- **name (VARCHAR(50), NOT NULL)** : Nom du produit.
+- **price (DECIMAL(10, 2), NOT NULL)** : Prix du produit.
+- **description (VARCHAR(150))** : Description du produit.
+- **origin (VARCHAR(50), NOT NULL)** : Origine du produit (pays ou région d'origine).
+- **UNIQUE(name)** : Contraintes d'unicité sur le nom du produit.
 
-created_at (TIMESTAMP) : Date et heure de création du produit.
+#### Table `stocks`
+- **id_stocks (INT, AUTO_INCREMENT, clé primaire)** : Identifiant unique pour chaque enregistrement de stock.
+- **quantity (INT, NOT NULL)** : Quantité en stock. Indique le nombre d'unités disponibles pour le produit référencé.
+- **created_at (DATETIME)** : Date et heure de création de l'enregistrement de stock.
+- **update_at (DATETIME)** : Date et heure de la dernière mise à jour de l'enregistrement de stock.
+- **id_product (INT, NOT NULL)** : Référence au produit. Ce champ fait le lien avec la table `products` en stockant l'identifiant du produit correspondant.
+- **FOREIGN KEY(id_product)** : Clé étrangère qui référence `id_product` dans la table `products`.
 
-name (VARCHAR) : Nom du produit. 
-
-price (DECIMAL(10, 2)) : Prix du produit. 
-
-description (TEXT) : Description du produit. 
-
-color (VARCHAR) : Couleur du produit. 
-
-#### Table ``stocks``
-id_stocks (INT, clé primaire) : Identifiant unique pour chaque enregistrement de stock. 
-
-product_id (INT, clé étrangère) : Référence au produit. 
-
-*Ce champ fait le lien avec la table products en stockant l'identifiant du produit correspondant. Cela permet de savoir quel produit est associé à chaque enregistrement de stock.*
-
-quantity (INT) : Quantité en stock.
-
-*Ce champ indique le nombre d'unités disponibles pour le produit référencé. Cela permet de gérer les niveaux de stock et de savoir quand il est nécessaire de réapprovisionner.*
+#### Table `categories`
+- **id_category (INT, AUTO_INCREMENT, clé primaire)** : Identifiant unique pour chaque catégorie.
+- **name (VARCHAR(50), NOT NULL)** : Nom de la catégorie.
+- **description (VARCHAR(150))** : Description de la catégorie.
+- **id_product (INT, NOT NULL)** : Référence au produit. Ce champ fait le lien avec la table `products` en stockant l'identifiant du produit correspondant.
+- **UNIQUE(name)** : Contraintes d'unicité sur le nom de la catégorie.
+- **FOREIGN KEY(id_product)** : Clé étrangère qui référence `id_product` dans la table `products`.
 
 ## Endpoints de l'API
 ![](/assets/api-endpoint.png)
