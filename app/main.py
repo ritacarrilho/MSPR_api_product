@@ -11,6 +11,8 @@ app = FastAPI(
     version="0.0.2",
 )
 
+# --------------------- Products & stocks endpoints --------------------- #
+
 @app.get("/products/", response_model=List[schemas.Product], tags=["products"])
 def get_products(db: Session = Depends(get_db)):
     return controllers.get_all_products(db)
@@ -39,7 +41,6 @@ def get_product_stock(id: int, db: Session = Depends(get_db)):
 
 ## requête GET en plus possible 
 ## Obtenir les produits avec leur stock
-## Obtenir les produits par couleur
 ## Obtenir les produits avec un prix inférieur à une valeur spécifiée
 ## Obtenir le stock total pour chaque produit
 ## Obtenir les produits créés après une certaine date
@@ -99,3 +100,66 @@ def delete_stock(id: int, db: Session = Depends(get_db)):
     """
     controllers.delete_stock(db, id)
     return {"detail": "Stock deleted"}
+
+# --------------------- Categories endpoints --------------------- #
+
+@app.get("/categories/", response_model=List[schemas.Category], tags=["categories"])
+def get_all_categories(db: Session = Depends(get_db)):
+    return controllers.get_all_categories(db)
+
+@app.get("/categories/{id}", response_model=schemas.Category, tags=["categories"])
+def get_category(id: int, db: Session = Depends(get_db)):
+    return controllers.get_category_by_id(db, id)
+
+@app.post("/categories/", response_model=schemas.Category, tags=["categories"])
+def create_category(category: schemas.CategoryCreate, db: Session = Depends(get_db)):
+    return controllers.create_category(db, category)
+
+@app.patch("/categories/{id}", response_model=schemas.Category, tags=["categories"])
+def update_category(id: int, category: schemas.CategoryUpdate, db: Session = Depends(get_db)):
+    return controllers.update_category(db, id, category)
+
+@app.delete("/categories/{id}", tags=["categories"])
+def delete_category(id: int, db: Session = Depends(get_db)):
+    controllers.delete_category(db, id)
+    return {"detail": "Category deleted successfully"}
+
+# --------------------- Suppliers endpoints --------------------- #
+@app.get("/suppliers/", response_model=List[schemas.Supplier], tags=["suppliers"])
+def get_all_suppliers(db: Session = Depends(get_db)):
+    return controllers.get_all_suppliers(db)
+
+@app.get("/suppliers/{id}", response_model=schemas.Supplier, tags=["suppliers"])
+def get_supplier(id: int, db: Session = Depends(get_db)):
+    return controllers.get_supplier_by_id(db, id)
+
+@app.post("/suppliers/", response_model=schemas.Supplier, tags=["suppliers"])
+def create_supplier(supplier: schemas.SupplierCreate, db: Session = Depends(get_db)):
+    return controllers.create_supplier(db, supplier)
+
+@app.patch("/suppliers/{id}", response_model=schemas.Supplier, tags=["suppliers"])
+def update_supplier(id: int, supplier: schemas.SupplierUpdate, db: Session = Depends(get_db)):
+    return controllers.update_supplier(db, id, supplier)
+
+@app.delete("/suppliers/{id}", tags=["suppliers"])
+def delete_supplier(id: int, db: Session = Depends(get_db)):
+    controllers.delete_supplier(db, id)
+    return {"message": "Supplier deleted successfully"}
+
+# --------------------- Product suppliers endpoints --------------------- #
+@app.get("/product_suppliers/", response_model=List[schemas.ProductSupplier], tags=["product_suppliers"])
+def get_all_product_suppliers(db: Session = Depends(get_db)):
+    return controllers.get_all_product_suppliers(db)
+
+@app.get("/product_suppliers/{product_id}/{supplier_id}", response_model=schemas.ProductSupplier, tags=["product_suppliers"])
+def get_product_supplier(product_id: int, supplier_id: int, db: Session = Depends(get_db)):
+    return controllers.get_product_supplier(db, product_id, supplier_id)
+
+@app.post("/product_suppliers/", response_model=schemas.ProductSupplier, tags=["product_suppliers"])
+def create_product_supplier(product_supplier: schemas.ProductSupplierCreate, db: Session = Depends(get_db)):
+    return controllers.create_product_supplier(db, product_supplier)
+
+@app.delete("/product_suppliers/{product_id}/{supplier_id}", tags=["product_suppliers"])
+def delete_product_supplier(product_id: int, supplier_id: int, db: Session = Depends(get_db)):
+    controllers.delete_product_supplier(db, product_id, supplier_id)
+    return {"message": "Product-Supplier relation deleted successfully"}
