@@ -21,8 +21,10 @@ class Stock(Base):
 
     id_stocks = Column(Integer, primary_key=True, index=True)
     quantity = Column(Integer, nullable=False)
+    created_at = Column(DateTime)
+    update_at = Column(DateTime)
     id_product = Column(Integer, ForeignKey('products.id_product'), nullable=False)
 
     product = relationship("Product", back_populates="stocks")
 
-Product.stocks = relationship("Stock", back_populates="product")
+# Product.stocks = relationship("Stock", back_populates="product")

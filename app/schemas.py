@@ -20,8 +20,9 @@ class Product(ProductBase):
         orm_mode = True
 
 class Stock(BaseModel):
-    id_stocks: int
     quantity: int
+    created_at: Optional[datetime] = None
+    update_at: Optional[datetime] = None
     id_product: int
 
     class Config:
