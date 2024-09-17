@@ -1,5 +1,13 @@
 '''
-This file handle the actual business logic of processing the RabbitMQ messages.
+This file handles the core logic of processing RabbitMQ messages in response to incoming product data requests.
+
+The `handle_request` function is responsible for:
+- Receiving messages from RabbitMQ containing product IDs.
+- Validating and parsing the incoming message body.
+- Fetching product details from the database based on the product IDs.
+- Sending the processed product data back to the requesting service through RabbitMQ.
+- Logging important events such as errors, incoming requests, and successful message handling.
+- Acknowledging the message once processing is complete, or rejecting it in case of failure.
 '''
 
 import pika
@@ -8,7 +16,6 @@ import json
 import logging
 from .service import fetch_products_by_id
 from..database import get_db
-from .publisher import publish_message
 
 # Function to handle incoming RabbitMQ messages
 def handle_request(ch, method, properties, body):

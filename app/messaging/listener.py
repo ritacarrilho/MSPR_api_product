@@ -1,5 +1,12 @@
-''' 
-This module initialize RabbitMQ and define the consumer logic.
+'''
+This module initializes RabbitMQ and defines the logic for the consumer that listens for messages.
+
+Key Responsibilities:
+- Continuously attempts to connect to RabbitMQ and initialize the listener.
+- If RabbitMQ is unavailable or a connection fails, the module retries the connection every 10 seconds.
+- Once connected, it declares the 'product_details_queue' and starts consuming messages.
+- The `handle_request` function (from the consumer module) is used to process incoming messages.
+- Any errors encountered during message consumption or connection are logged, and the connection is gracefully closed before retrying.
 '''
 
 import logging

@@ -1,5 +1,11 @@
-''' 
-This module initialize RabbitMQ and define the consumer logic.
+'''
+This module initializes the connection to RabbitMQ and defines the retry logic for handling connection failures.
+
+Key Responsibilities:
+- Load environment variables for RabbitMQ configuration using `dotenv`.
+- Implement a `get_rabbitmq_connection` function with retry logic, ensuring the application can handle transient connection issues.
+- Log connection attempts, failures, and successes for easier troubleshooting.
+- Provide the ability to configure the number of retries and delay between retries.
 '''
 
 import pika

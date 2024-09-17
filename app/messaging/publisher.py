@@ -1,3 +1,12 @@
+'''
+This file handles the business logic of publishing messages in response to RabbitMQ requests.
+
+The `publish_message` function is responsible for:
+- Formatting and serializing product data into JSON.
+- Publishing the response back to the requesting service using RabbitMQ.
+- Logging key steps, including successful message publication and any potential errors.
+'''
+
 import pika
 import json
 import logging
