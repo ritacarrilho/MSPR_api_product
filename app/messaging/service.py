@@ -2,9 +2,8 @@
 This service handles the business logic for retrieving product details. It interacts with the repository to fetch data and then returns it in the correct format.
 '''
 
-import json
+import logging
 from ..controllers import get_products_by_id
-
 
 def fetch_products_by_id(product_ids, db):
     if not product_ids:

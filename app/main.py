@@ -4,7 +4,8 @@ from typing import List
 from . import models, schemas, controllers
 from .database import get_db
 import threading
-from .messaging.config import start_rabbitmq_listener
+import logging
+from .messaging.listener import start_rabbitmq_listener
 
 app = FastAPI(
     title="Paye ton kawa",
@@ -12,6 +13,20 @@ app = FastAPI(
     summary="API Produits",
     version="0.0.2",
 )
+
+# Start the RabbitMQ listener in a separate thread
+def run_listener_thread():
+    """Runs RabbitMQ listener in a separate thread."""
+    listener_thread = threading.Thread(target=start_rabbitmq_listener)
+    listener_thread.daemon = True  # Ensure the thread closes when the main program exits
+    listener_thread.start()
+
+# Run the API and the RabbitMQ listener
+@app.on_event("startup")
+def startup_event():
+    logging.info("Starting FastAPI application and RabbitMQ listener.")
+    run_listener_thread()
+
 
 # --------------------- Products & stocks endpoints --------------------- #
 
@@ -165,7 +180,3 @@ def create_product_supplier(product_supplier: schemas.ProductSupplierCreate, db:
 def delete_product_supplier(product_id: int, supplier_id: int, db: Session = Depends(get_db)):
     controllers.delete_product_supplier(db, product_id, supplier_id)
     return {"message": "Product-Supplier relation deleted successfully"}
-
-
-listener_thread = threading.Thread(target=start_rabbitmq_listener)
-listener_thread.start()

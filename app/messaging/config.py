@@ -3,24 +3,38 @@ This module initialize RabbitMQ and define the consumer logic.
 '''
 
 import pika
-from .listener import handle_request
+import os
+import logging
+import time
+from dotenv import load_dotenv
 
-# RabbitMQ connection configuration
-def get_rabbitmq_connection():
-    credentials = pika.PlainCredentials('user', 'password')
-    return pika.BlockingConnection(
-        pika.ConnectionParameters(host='rabbitmq', port=5672, virtual_host='/', credentials=credentials)
-    )
+load_dotenv()
 
-# Start the RabbitMQ listener
-def start_rabbitmq_listener():
-    connection = get_rabbitmq_connection()
-    channel = connection.channel()
+BROKER_USER = os.getenv("BROKER_USER")
+BROKER_PASSWORD = os.getenv('BROKER_PASSWORD')
+BROKER_HOST = os.getenv('BROKER_HOST')
+BROKER_PORT = os.getenv('BROKER_PORT')
+BROKER_VIRTUAL_HOST = os.getenv('BROKER_VIRTUAL_HOST')
 
-    # Ensure the queue exists
-    channel.queue_declare(queue='product_details_queue')
+RETRY_DELAY = 5 
+MAX_RETRIES = 5
 
-    # Start consuming messages
-    channel.basic_consume(queue='product_details_queue', on_message_callback=handle_request)
-    print("Product Service: RabbitMQ Listener started, waiting for messages.")
-    channel.start_consuming()
+logging.basicConfig(level=logging.INFO)
+
+def get_rabbitmq_connection(retries=5, delay=5):
+    """Attempts to connect to RabbitMQ with retry logic."""
+    for attempt in range(retries):
+        try:
+            credentials = pika.PlainCredentials(BROKER_USER, BROKER_PASSWORD)
+            connection = pika.BlockingConnection(
+                pika.ConnectionParameters(host=BROKER_HOST, port=BROKER_PORT, virtual_host=BROKER_VIRTUAL_HOST, credentials=credentials)
+            )
+            logging.info("Connected to RabbitMQ")
+            return connection
+        except pika.exceptions.AMQPConnectionError as e:
+            logging.error(f"Failed to connect to RabbitMQ: {e}. Retrying in {delay} seconds... (Attempt {attempt + 1}/{retries})")
+            time.sleep(delay)
+        except Exception as e:
+            logging.error(f"Unexpected error: {e}")
+    logging.error("Max retries reached. RabbitMQ connection failed.")
+    return None

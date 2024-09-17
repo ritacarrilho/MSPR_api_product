@@ -1,37 +1,26 @@
+''' 
+This module initialize RabbitMQ and define the consumer logic.
 '''
-This file handle the actual business logic of processing the RabbitMQ messages.
-'''
 
-import pika
-import json
-import json
-from .service import fetch_products_by_id
-from..database import get_db
+import logging
+import time
+from .config import get_rabbitmq_connection
+from .consumer import handle_request
 
-# Function to handle incoming RabbitMQ messages
-def handle_request(ch, method, properties, body):
-    db = next(get_db())  # Get the database session from the generator
-    try:
-        # Parse incoming message
-        data = json.loads(body)
-        product_ids = data.get('product_ids', [])
-        
-        # Fetch product details
-        products_json = fetch_products_by_id(product_ids, db)
-
-        # Send the response back to the producer via RabbitMQ
-        response = json.dumps(products_json)
-        ch.basic_publish(
-            exchange='',
-            routing_key=properties.reply_to,
-            properties=pika.BasicProperties(correlation_id=properties.correlation_id),
-            body=response
-        )
-
-        ch.basic_ack(delivery_tag=method.delivery_tag)
-
-    except Exception as e:
-        print(f"Error handling request: {e}")
-        ch.basic_nack(delivery_tag=method.delivery_tag)
-    finally:
-        db.close()  # Ensure DB session is closed after use
+# Start the RabbitMQ listener
+def start_rabbitmq_listener():
+    while True:
+        connection = get_rabbitmq_connection()
+        if connection:
+            try:
+                channel = connection.channel()
+                channel.queue_declare(queue='product_details_queue')
+                channel.basic_consume(queue='product_details_queue', on_message_callback=handle_request)
+                logging.info("RabbitMQ Listener started, waiting for messages on 'product_details_queue'.")
+                channel.start_consuming()
+            except Exception as e:
+                logging.error(f"Error in RabbitMQ listener: {e}")
+                connection.close()
+        else:
+            logging.error("RabbitMQ is not available. Retrying in 10 seconds...")
+            time.sleep(10) 
