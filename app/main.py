@@ -3,6 +3,8 @@ from sqlalchemy.orm import Session
 from typing import List
 from . import models, schemas, controllers
 from .database import get_db
+import threading
+from .messaging.config import start_rabbitmq_listener
 
 app = FastAPI(
     title="Paye ton kawa",
@@ -163,3 +165,7 @@ def create_product_supplier(product_supplier: schemas.ProductSupplierCreate, db:
 def delete_product_supplier(product_id: int, supplier_id: int, db: Session = Depends(get_db)):
     controllers.delete_product_supplier(db, product_id, supplier_id)
     return {"message": "Product-Supplier relation deleted successfully"}
+
+
+listener_thread = threading.Thread(target=start_rabbitmq_listener)
+listener_thread.start()
