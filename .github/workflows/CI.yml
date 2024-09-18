@@ -111,7 +111,8 @@ jobs:
           echo "Updating version to $VERSION"
           git commit -m "Update version to $VERSION [skip ci]"
           git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} main
-        
+        continue-on-error: true
+
       - name: Checkout release branch with token
         if: success()
         uses: actions/checkout@v3
