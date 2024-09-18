@@ -84,7 +84,7 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:latest
-        # continue-on-error: true
+        continue-on-error: true
 
       - name: Checkout release branch with token
         if: success()
