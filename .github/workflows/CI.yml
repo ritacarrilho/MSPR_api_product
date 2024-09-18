@@ -93,6 +93,9 @@ jobs:
           ref: release
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
+      - name: Pull latest changes from main
+        run: git pull origin main
+
       - name: Update version in files on main
         if: success()
         run: |
