@@ -45,13 +45,13 @@ jobs:
 
       - name: Check Docker container logs
         run: |
-          docker-compose logs kawa-products-app
+          docker-compose logs ${{ secrets.DOCKER_CONTAINER }}
 
       - name: Verify Docker containers are running
         run: |
           docker ps
 
-          if ! docker ps | grep kawa-products-app; then
+          if ! docker ps | grep ${{ secrets.DOCKER_CONTAINER }}; then
             echo "Le conteneur n'est pas en cours d'exécution !"
             exit 1
           fi
