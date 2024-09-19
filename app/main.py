@@ -3,7 +3,11 @@ from sqlalchemy.orm import Session
 from typing import List
 from . import schemas, controllers
 from .database import get_db
+import threading
+import logging
+from .messaging.listener import start_rabbitmq_listener
 from.middleware import get_current_user, is_admin
+
 
 app = FastAPI(
     title="Paye ton kawa",
@@ -12,8 +16,23 @@ app = FastAPI(
     version="0.0.2",
 )
 
-# --------------------- Products endpoints --------------------- #
 
+# Start the RabbitMQ listener in a separate thread
+def run_listener_thread():
+    """Runs RabbitMQ listener in a separate thread."""
+    listener_thread = threading.Thread(target=start_rabbitmq_listener)
+    listener_thread.daemon = True  # Ensure the thread closes when the main program exits
+    listener_thread.start()
+
+# Run the API and the RabbitMQ listener
+@app.on_event("startup")
+def startup_event():
+    logging.info("Starting FastAPI application and RabbitMQ listener.")
+    run_listener_thread()
+
+
+
+# --------------------- Products endpoints --------------------- #
 @app.get("/products/", response_model=List[schemas.Product], tags=["products"])
 async def get_products(db: Session = Depends(get_db), current_user: dict = Depends(get_current_user)):
     """
@@ -513,4 +532,3 @@ async def delete_product_supplier(product_id: int, supplier_id: int, db: Session
     except Exception as e:
         print(f"Error deleting product-supplier relationship: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while deleting the product-supplier relationship")
-

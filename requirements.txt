@@ -8,7 +8,6 @@ mysql-connector-python
 sqlalchemy
 sqlalchemy-utils
 pika
-aio-pika
 mock
 jose
 python-jose
