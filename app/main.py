@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from . import models, schemas, controllers
+from . import schemas, controllers
 from .database import get_db
 from.middleware import get_current_user, is_admin
 

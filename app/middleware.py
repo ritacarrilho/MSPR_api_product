@@ -2,7 +2,6 @@ import os
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException, status
 from dotenv import load_dotenv
-
 from jose import JWTError, jwt
 
 load_dotenv()
@@ -17,7 +16,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES')
 def verify_jwt_token(token: str):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        return payload  # Returns the decoded payload (e.g., customer data)
+        return payload 
     except JWTError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
