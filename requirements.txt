@@ -8,4 +8,9 @@ mysql-connector-python
 sqlalchemy
 sqlalchemy-utils
 pika
-aio_pika
+mock
+jose
+python-jose
+passlib
+python-multipart
+pyjwt

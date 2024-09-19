@@ -37,7 +37,11 @@ class StockBase(BaseModel):
     id_product: int
 
 class StockCreate(StockBase):
-    pass
+    created_at: Optional[datetime] = None
+    update_at: Optional[datetime] = None
+
+    class Config:
+        orm_mode = True
 
 class Stock(StockBase):
     id_stocks: int

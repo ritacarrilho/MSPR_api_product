@@ -15,13 +15,12 @@ def get_product_by_id(db: Session, product_id: int):
     return product
 
 def get_all_stocks(db: Session):
-    return db.query(models.Stock).all()
+    return db.query(Stock).all()
 
 def get_products_by_ids(db: Session, product_ids: list):
     if not product_ids:
         raise ValueError("Product IDs list is empty")
 
-    # Query the database for products based on the provided IDs
     products = db.query(Product).filter(Product.id_product.in_(product_ids)).all()
 
     if not products:
@@ -37,6 +36,18 @@ def get_products_by_id(db: Session, product_ids: list):
 
     return products
 
+def get_stock_by_id(db: Session, stock_id: int):
+    stock = db.query(Stock).filter(Stock.id_stocks == stock_id).first()
+    if stock is None:
+        raise HTTPException(status_code=404, detail="Stock not found")
+    return stock
+
+def get_product_stock(db: Session, id: int):
+    stocks = db.query(Stock).filter(Stock.id_product == id).all()
+    if not stocks:
+        raise HTTPException(status_code=404, detail="No stock found for this product")
+    return stocks
+
 def create_product(db: Session, product: ProductCreate):
     db_product = Product(**product.dict())
     db.add(db_product)
@@ -45,7 +56,7 @@ def create_product(db: Session, product: ProductCreate):
     return db_product
 
 def create_stock(db: Session, stock: StockCreate):
-    db_stock = Stock(**stock.dict())
+    db_stock = Stock(**stock.dict(exclude_unset=True))
     db.add(db_stock)
     db.commit()
     db.refresh(db_stock)
