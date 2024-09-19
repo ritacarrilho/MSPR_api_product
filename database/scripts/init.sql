@@ -63,10 +63,10 @@ INSERT INTO stocks (quantity, id_product, created_at) VALUES
 (50, 2, NOW()),
 (75, 3, NOW());
 
-INSERT INTO categories (name, description) VALUES
-('Café Arabica', 'Café de haute qualité avec un goût doux et fruité.'),
-('Café Robusta', 'Café fort avec un goût amer, idéal pour les expresso.'),
-('Café Décaféiné', 'Café sans caféine pour une consommation sans stimulant.');
+INSERT INTO categories (name, description, id_product) VALUES
+('Café Arabica', 'Café de haute qualité avec un goût doux et fruité.', 1),
+('Café Robusta', 'Café fort avec un goût amer, idéal pour les expresso.', 2),
+('Café Décaféiné', 'Café sans caféine pour une consommation sans stimulant.', 3);
 
 INSERT INTO suppliers (name, siret, address, email, phone, created_at, update_at) VALUES
 ('Fournisseur A', '12345678901234', '123 Rue de Paris, Paris, France', 'contact@fournisseura.com', '0123456789', NOW(), NOW()),
