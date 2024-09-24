@@ -17,9 +17,8 @@ import logging
 from .service import fetch_products_by_id
 from..database import get_db
 
-# Function to handle incoming RabbitMQ messages
 def handle_request(ch, method, properties, body):
-    db = next(get_db())  # Get the database session from the generator
+    db = next(get_db()) 
     try:
         if not body or body.strip() == "":
             logging.error("Empty or invalid message body received.")
