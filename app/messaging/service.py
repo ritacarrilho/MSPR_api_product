@@ -10,19 +10,25 @@ Key Responsibilities:
 - Log any potential issues or errors encountered during the process.
 '''
 
+import aio_pika
+import json
 from ..controllers import get_products_by_id
 
 def fetch_products_by_id(product_ids, db):
     if not product_ids:
         raise ValueError("Product IDs must not be empty")
 
-    # Fetch products using repository
     products = get_products_by_id(db, product_ids)
 
-    # Prepare JSON response (including any necessary transformations)
     products_json = [{"id": p.id_product, 
                       "name": p.name, 
-                      "price": float(p.price),  # Convert Decimal to float
+                      "price": float(p.price),  
                       "description": p.description} for p in products]
 
     return products_json
+
+
+async def process_stock_update_message(message: aio_pika.IncomingMessage):
+    async with message.process():
+        stock_data = json.loads(message.body)
+        print(f"Updating stock for product {stock_data['product_id']} to {stock_data['new_quantity']}")

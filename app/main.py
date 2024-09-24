@@ -21,7 +21,7 @@ app = FastAPI(
 def run_listener_thread():
     """Runs RabbitMQ listener in a separate thread."""
     listener_thread = threading.Thread(target=start_rabbitmq_listener)
-    listener_thread.daemon = True  # Ensure the thread closes when the main program exits
+    listener_thread.daemon = True 
     listener_thread.start()
 
 # Run the API and the RabbitMQ listener

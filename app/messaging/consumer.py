@@ -26,15 +26,12 @@ def handle_request(ch, method, properties, body):
             ch.basic_nack(delivery_tag=method.delivery_tag)
             return
 
-        # Parse incoming message
         data = json.loads(body)
         product_ids = data.get('product_ids', [])
         logging.info(f"Processing product IDs: {product_ids}")
         
-        # Fetch product details
         products_json = fetch_products_by_id(product_ids, db)
 
-        # Send the response back to the producer via RabbitMQ
         response = json.dumps(products_json)
         ch.basic_publish(
             exchange='',
